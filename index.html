@@ -190,6 +190,29 @@ details.seq summary span{font-family:var(--mono);font-size:12.5px;color:var(--in
 .btn{justify-self:start;padding:6px 14px;border:1px solid var(--accent);border-radius:5px;background:var(--accent);color:var(--accent-ink);font:inherit;font-size:13px;font-weight:500;cursor:pointer}
 .btn:hover{filter:brightness(1.08)}
 
+
+/* class log */
+.classlog{list-style:none;margin:0;padding:0;display:grid;border-bottom:1px solid var(--line)}
+.cls{display:grid;grid-template-columns:128px minmax(0,1fr);gap:8px 24px;padding:22px 0;border-top:1px solid var(--line)}
+.cls-date{display:grid;gap:4px;align-content:start;justify-items:start}
+.cls-date .d{font-family:var(--mono);font-size:22px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.cls-date .n{font-size:12.5px;color:var(--ink-3)}
+.mode{display:inline-block;padding:0 7px;border-radius:3px;font-size:11.5px;line-height:1.7;background:var(--surface-2);color:var(--ink-2)}
+.mode.zoom{background:var(--pred-bg);color:var(--pred)}
+.mode.now{background:var(--accent);color:var(--accent-ink);font-weight:500}
+.cls-body{display:grid;gap:10px;min-width:0}
+.cls-body h3{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.35;text-wrap:balance}
+.cls-body .one{font-size:15px;max-width:72ch}
+.cls-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:12px 28px}
+.cls-grid h4{margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--ink-3)}
+.cls-grid ul{margin:0;padding-left:1.1em;display:grid;gap:5px;font-size:14px;line-height:1.6}
+.cls-foot{font-size:12.5px;color:var(--ink-3);max-width:none}
+@media (max-width: 760px){
+  .cls{grid-template-columns:minmax(0,1fr)}
+  .cls-date{grid-auto-flow:column;justify-content:start;align-items:baseline;gap:10px}
+  .cls-grid{grid-template-columns:minmax(0,1fr)}
+}
+
 footer{margin-top:64px;padding-top:18px;border-top:1px solid var(--line);display:grid;gap:6px;font-size:12.5px;color:var(--ink-3)}
 footer p{max-width:none}
 
@@ -229,6 +252,7 @@ footer p{max-width:none}
 <nav class="toc" aria-label="页面目录"><ol>
   <li><a href="#overview">概览</a></li>
   <li><a href="#portal">原始数据入口</a></li>
+  <li><a href="#classes">课堂记录</a></li>
   <li><a href="#locus">基因与位点</a></li>
   <li><a href="#transcript">转录本</a></li>
   <li><a href="#protein">蛋白</a></li>
@@ -284,6 +308,141 @@ footer p{max-width:none}
 <div class="lgroup" id="g-tools"><h3>课程工具</h3><ul><li><a class="lk" href="https://www.ebi.ac.uk/jdispatcher/psa/emboss_needle" target="_blank" rel="noopener" data-k="emboss needle 全局两两比对（q3） needle 比对 全局 q3 课程 ebi.ac.uk"><span class="lk-name">EMBOSS Needle</span><span class="lk-desc">全局两两比对（Q3）</span><span class="lk-host">ebi.ac.uk</span></a></li><li><a class="lk" href="https://dotlet.vital-it.ch/" target="_blank" rel="noopener" data-k="dotlet js 点阵图（q3） dotlet 点阵 dot plot q3 课程 dotlet.vital-it.ch"><span class="lk-name">Dotlet JS</span><span class="lk-desc">点阵图（Q3）</span><span class="lk-host">dotlet.vital-it.ch</span></a></li><li><a class="lk" href="https://www.ebi.ac.uk/jdispatcher/msa/clustalo" target="_blank" rel="noopener" data-k="clustal omega 多序列比对（ps2） clustal msa 多序列 ps2 课程 ebi.ac.uk"><span class="lk-name">Clustal Omega</span><span class="lk-desc">多序列比对（PS2）</span><span class="lk-host">ebi.ac.uk</span></a></li></ul></div>
   </div>
   <p class="empty" id="empty" hidden>没有匹配的链接，换个关键词试试。</p>
+</section>
+
+<section id="classes" aria-labelledby="h-classes">
+  <h2 id="h-classes">课堂记录<small>每节课讲了什么、我拿 LACTBL1 做了什么、对应哪项作业。课件在 Canvas Module 1（需 UMN 登录），第 4、5 次课有录像</small></h2>
+  <ol class="classlog">
+
+    <li class="cls">
+      <div class="cls-date"><span class="d">9/09</span><span class="n">周三 · 第 1 次</span><span class="mode">教室</span></div>
+      <div class="cls-body">
+        <h3>这门课做什么，怎么挑一个"没人研究过"的基因</h3>
+        <p class="one">一整个学期只研究一个功能未知的人类基因，最后写成报告和一篇维基百科词条。第一周先学会怎么挑这个基因。</p>
+        <div class="cls-grid">
+          <div><h4>讲了什么</h4><ul>
+            <li>生物信息分析就是用免费的在线数据库和工具研究 DNA、RNA 和蛋白：查序列、翻译、比对、看表达、推测结构和功能。比湿实验快，花的只是时间。</li>
+            <li>没有考试。成绩来自 4 次作业（Problem Set）、4 次小组汇报、期末报告、一篇维基词条，外加互评。</li>
+            <li>"功能未知"怎么判断：维基百科没有页面（或只有几句话），PubMed 上没有以这个基因名或别名做标题的论文。</li>
+            <li>怎么找：在 NCBI 用 "Homo sapiens"[organism] 加上 unknown function、hypothetical、TMEM#、FAM#、C#orf# 这类词搜。每个候选都要拿全部别名再查一遍。</li>
+          </ul></div>
+          <div><h4>我做了什么</h4><ul>
+            <li>按这个标准开始筛候选基因，并把筛选过程记在检索日志里。</li>
+          </ul></div>
+        </div>
+        <p class="cls-foot">课件：Slides 1-1、1-2 · 当周任务：挑 3 个候选基因，登记到班级表格</p>
+      </div>
+    </li>
+
+    <li class="cls">
+      <div class="cls-date"><span class="d">9/14</span><span class="n">周一 · 第 2 次</span><span class="mode">教室</span></div>
+      <div class="cls-body">
+        <h3>查找生物信息：一个候选基因要查哪些地方</h3>
+        <p class="one">拿一个候选基因按固定顺序查一圈，判断它是不是真的没人研究过，同时把能找到的信息都收齐。</p>
+        <div class="cls-grid">
+          <div><h4>讲了什么</h4><ul>
+            <li>检查顺序：维基百科 → NCBI Gene（看页面链接的 PubMed 文献）→ 换成别名再查一遍。</li>
+            <li>老师用 C1orf50 演示：直接搜 PubMed 是 0 篇，NCBI Gene 页面却链着几篇文章。所以两处都要看。</li>
+            <li>各个库能拿到什么：Nucleotide 看 mRNA 长度、外显子、UTR、polyA 信号；Protein 看氨基酸数和分子量；GeneCards 汇总别名、结构域和表达；另外还要查 Google Scholar、OMIM、AceView、Google Books、美国专利局。</li>
+            <li>检索的习惯：先想清楚要回答什么问题，列全同义词，边查边判断质量，知道什么时候该停。长文章用 ⌘F 找关键词，用截图留证据。</li>
+          </ul></div>
+          <div><h4>我做了什么</h4><ul>
+            <li>选定 LACTBL1，另两个候选是 RNF224 和 C7orf33。</li>
+            <li>核查了一遍：没有维基页面，PubMed 标题里没出现过它，NCBI Gene 链的几篇文献都不是专门研究它的。</li>
+            <li>把 ID、位置、外显子、结构域、表达整理成基因档案。</li>
+          </ul></div>
+        </div>
+        <p class="cls-foot">课件：Slides 2-1 · 对应：PS1 第 1 题（文本检索）、第 4 题（维基截图）</p>
+      </div>
+    </li>
+
+    <li class="cls">
+      <div class="cls-date"><span class="d">9/16</span><span class="n">周三 · 第 3 次</span><span class="mode">教室</span></div>
+      <div class="cls-body">
+        <h3>判断信息好坏；把 mRNA 翻译成蛋白</h3>
+        <p class="one">前半节讲怎么评价查到的资料，后半节讲概念翻译：把 mRNA 三个碱基一组翻成氨基酸，和序列对齐排版，再做标注。</p>
+        <div class="cls-grid">
+          <div><h4>讲了什么</h4><ul>
+            <li>好信息的标准：精炼、完整（排除了什么要说清楚）、准确（有出处）、切题、按重要性排好序、够新。检索过程要写到别人能照着重做一遍。</li>
+            <li>课堂练习：拿往届作业范例，按这些标准逐条打分。</li>
+            <li>概念翻译：用 SIXFRAME 把 mRNA 的六个阅读框都翻出来，挑能从 ATG 一直读到终止密码子的那个，删掉起始前和终止后的氨基酸。</li>
+            <li>标注手法：改字体颜色、画圈、半透明色块、竖线标外显子交界、页边写注释、括号框结构域。</li>
+          </ul></div>
+          <div><h4>我做了什么</h4><ul>
+            <li>用 NM_001289974.2 做了 LACTBL1 的概念翻译：第 +1 框，从 nt 211 的 ATG 读到 nt 1948–1950 的 TGA，得到 579 个氨基酸，和 NP_001276903.1 一模一样。</li>
+            <li>标了起止密码子、7 个外显子交界和 AmpC 区。9/28 又重排了一遍：5′UTR 不再配氨基酸，碱基和氨基酸都编了号，补上 uORF 和 Kozak。</li>
+          </ul></div>
+        </div>
+        <p class="cls-foot">课件：Slides 3-1、2-2 · 对应：PS1 第 2 题 · 课后布置：维基百科培训，和鸡、小鼠的同源蛋白做比对</p>
+      </div>
+    </li>
+
+    <li class="cls">
+      <div class="cls-date"><span class="d">9/21</span><span class="n">周一 · 第 4 次</span><span class="mode zoom">Zoom · 有录像</span></div>
+      <div class="cls-body">
+        <h3>全局序列比对</h3>
+        <p class="one">把人的蛋白和其他物种的同一个蛋白从头到尾对齐，看哪些位置一直没变。没变的位置通常最重要。</p>
+        <div class="cls-grid">
+          <div><h4>讲了什么</h4><ul>
+            <li>相似和同源是两回事：相似度是个百分比；同源是说两条序列有没有共同祖先，只有"是"和"不是"。比对就是看相似到什么程度才能推断同源。</li>
+            <li>比对假设序列是从共同祖先一步步变来的：碱基或氨基酸被替换、插入、删除。</li>
+            <li>保守的位置往往对结构和功能最关键。但亲缘太近的物种（比如大鼠和小鼠）很多位置只是还没来得及变，所以比对对象越远，信息越多。</li>
+            <li>同源不等于功能一样：有个酶在进化中变成了眼睛晶状体里的结构蛋白。</li>
+            <li>替换矩阵给每种替换打分：罕见氨基酸完全相同得分最高，化学性质差得远的替换扣分最多。</li>
+            <li>全局比对适合只有一个结构域、分化不大的蛋白；分化大、结构域多的用局部比对。</li>
+            <li>操作：在 NCBI Protein 找小鼠、鸡、斑马鱼、果蝇的同源蛋白，用 EMBOSS Needle 和人的序列比。</li>
+          </ul></div>
+          <div><h4>我做了什么</h4><ul>
+            <li>人 LACTBL1（NP_001276903.1）对小鼠 Lactbl1（NP_001230191.1）跑了 Needle（EBLOSUM62）：一致 81.1%，相似 86.4%，空位 0.3%。</li>
+            <li>差别最大的一段在 aa 186–200，小鼠在这里多了插入；S142–K145 的 S-x-x-K 基序小鼠也有。</li>
+          </ul></div>
+        </div>
+        <p class="cls-foot">课件：Slides 4-1 · 对应：PS1 第 3 题（鸡、斑马鱼、最远物种这三组还没做）</p>
+      </div>
+    </li>
+
+    <li class="cls">
+      <div class="cls-date"><span class="d">9/23</span><span class="n">周三 · 第 5 次</span><span class="mode zoom">Zoom · 有录像</span></div>
+      <div class="cls-body">
+        <h3>点阵图：找序列内部的重复</h3>
+        <p class="one">把一条序列和自己（或另一条）画成点阵图，连成斜线的地方就是相似片段；主对角线旁边出现平行斜线，说明序列里有重复。</p>
+        <div class="cls-grid">
+          <div><h4>讲了什么</h4><ul>
+            <li>局部比对只找一小段一小段的相似，适合"积木式"的蛋白。很多蛋白由几种结构域拼成（例子：凝血因子 XII 和 tPA），这些积木是靠基因内部重复和外显子拼接扩散开的。</li>
+            <li>画法：一条序列横放，一条竖放；设一个窗口（每次比几个残基）和一个阈值（至少多少匹配才打点）。阈值放松，点变多，噪点也变多。</li>
+            <li>读图：自己比自己时主对角线一定有，不说明问题；旁边出现平行斜线才是内部重复。</li>
+            <li>工具：蛋白用 Dotlet，核酸用 DNAdot。</li>
+          </ul></div>
+          <div><h4>我做了什么</h4><ul>
+            <li>LACTBL1 自己比自己（Dotlet，BLOSUM62，窗口 15）：主对角线以外没有平行斜线，所以没有内部重复。</li>
+            <li>几个零星的短点是富含脯氨酸的片段碰巧相像（比如 aa 62–76 对 447–461），不是重复。</li>
+          </ul></div>
+        </div>
+        <p class="cls-foot">课件：Slides 4-2 · 对应：PS1 第 3 题的 dot plot · 同一周：维基百科培训 4 个模块</p>
+      </div>
+    </li>
+
+    <li class="cls">
+      <div class="cls-date"><span class="d">9/28</span><span class="n">周一 · 第 6 次</span><span class="mode now">今天 11:15</span></div>
+      <div class="cls-body">
+        <h3>BLAST：在整个数据库里找相似序列</h3>
+        <p class="one">课件还没发（9/28 上午查过 Canvas）。下面按日程表主题先写预习，上完课再补。</p>
+        <div class="cls-grid">
+          <div><h4>预习</h4><ul>
+            <li>BLAST 拿一条序列去整个数据库里找相似片段（局部比对），结果主要看三列：E 值、覆盖度（Query cover）、一致度（Per. Ident）。</li>
+            <li>一致度 20–35% 这一段叫 twilight zone，光看数字判断不了是不是同源。远亲要用 PSI-BLAST 或 DELTA-BLAST 去找。</li>
+            <li>网页版 BLASTp 现在默认搜 ClusteredNR 库；要拿到某个物种的 NP_/XP_ 编号，把库换成 refseq_protein，或在 Organism 栏填物种。</li>
+          </ul></div>
+          <div><h4>我打算做什么</h4><ul>
+            <li>LACTBL1 和旁系 LACTB 只有约 18% 一致，正是 twilight zone 以下的例子。</li>
+            <li>用 BLAST 找鸡、斑马鱼、果蝇的同源蛋白，补齐 PS1 第 3 题。果蝇里如果只搜到 20% 左右、只覆盖一部分的命中，拿它反过来搜人类，回来的是 LACTBL1 才算直系同源。</li>
+          </ul></div>
+        </div>
+        <p class="cls-foot">课上有 ChimeIn 题 · 下一次（9/30）：BLAT 和 Workshop，带 PS1 草稿</p>
+      </div>
+    </li>
+
+  </ol>
 </section>
 
 <section id="locus" aria-labelledby="h-locus">
