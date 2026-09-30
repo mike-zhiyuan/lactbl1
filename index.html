@@ -191,25 +191,90 @@ details.seq summary span{font-family:var(--mono);font-size:12.5px;color:var(--in
 .btn:hover{filter:brightness(1.08)}
 
 
-/* class log */
-.classlog{list-style:none;margin:0;padding:0;display:grid;border-bottom:1px solid var(--line)}
-.cls{display:grid;grid-template-columns:128px minmax(0,1fr);gap:8px 24px;padding:22px 0;border-top:1px solid var(--line)}
-.cls-date{display:grid;gap:4px;align-content:start;justify-items:start}
-.cls-date .d{font-family:var(--mono);font-size:22px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
-.cls-date .n{font-size:12.5px;color:var(--ink-3)}
-.mode{display:inline-block;padding:0 7px;border-radius:3px;font-size:11.5px;line-height:1.7;background:var(--surface-2);color:var(--ink-2)}
+/* schedule */
+.now{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.now > div{display:grid;gap:2px;align-content:start;min-width:0;padding:12px 16px}
+.now > div:first-child{padding-left:0}
+.now > div + div{border-left:1px solid var(--line)}
+.now .k{font-size:12px;color:var(--ink-3);letter-spacing:.04em}
+.now .v{font-family:var(--mono);font-size:19px;font-weight:600;line-height:1.3;font-variant-numeric:tabular-nums;white-space:nowrap}
+.now .s{font-size:13px;color:var(--ink-2);overflow-wrap:anywhere}
+.sched-bar{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between}
+.vq{display:flex;flex-wrap:wrap;gap:6px}
+.vq button{padding:3px 12px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink-2);font:inherit;font-size:13px;cursor:pointer}
+.vq button:hover{border-color:var(--accent);color:var(--accent)}
+.vq button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:500}
+.key{font-size:12.5px;color:var(--ink-3);max-width:none}
+.r-mark{color:var(--weak)}
+.warn{color:var(--weak)}
+.rounds{display:grid;gap:26px}
+.round{display:grid}
+.round-head{display:flex;flex-wrap:wrap;gap:2px 14px;align-items:baseline;padding:0 10px 8px;border-bottom:2px solid var(--ink)}
+.round-head h3{font-size:17px}
+.round-head p{font-size:12.5px;color:var(--ink-3);max-width:none}
+.sched{list-style:none;margin:0;padding:0;display:grid}
+.row{border-bottom:1px solid var(--line)}
+.r-line,.cls > summary{display:grid;grid-template-columns:58px 34px minmax(0,1fr) auto;gap:2px 12px;align-items:baseline;padding:11px 10px}
+.cls > summary{cursor:pointer;list-style:none}
+.cls > summary::-webkit-details-marker{display:none}
+.cls > summary:hover .r-title{color:var(--accent)}
+.r-date{display:grid;line-height:1.25}
+.r-date b{font-family:var(--mono);font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.r-date i{font-style:normal;font-size:12px;color:var(--ink-3)}
+.r-no{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.r-main{display:grid;gap:3px;min-width:0}
+.r-title{font-size:15px;font-weight:500;line-height:1.5}
+.r-sub{font-size:13.5px;color:var(--ink-2);line-height:1.6;max-width:72ch}
+.r-en{font-size:12px;color:var(--ink-3);font-style:italic;line-height:1.5}
+.r-rel{font-size:12.5px;color:var(--ink-3)}
+.r-due,.r-items{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;font-size:13px}
+.r-due-k{font-size:12px;color:var(--ink-3)}
+.r-note{font-size:12.5px;color:var(--ink-3)}
+.due-item{display:inline-flex;flex-wrap:wrap;gap:0 6px;align-items:baseline}
+.due-item .code{font-family:var(--mono);font-size:11.5px;line-height:1.6;padding:0 5px;border:1px solid var(--line-strong);border-radius:3px;color:var(--ink)}
+.due-item .dl{color:var(--ink)}
+.due-item.big .dl{font-weight:600}
+.due-item .t{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.due-item .warn{font-size:12px}
+.due-item.is-past .code,.due-item.is-past .dl,.due-item.is-past .t{color:var(--ink-3)}
+.due-item.is-soon .code{border-color:var(--weak);background:var(--weak-bg);color:var(--weak)}
+.r-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;align-items:center}
+.mode{display:inline-block;padding:0 7px;border-radius:3px;font-size:11.5px;line-height:1.7;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
 .mode.zoom{background:var(--pred-bg);color:var(--pred)}
-.mode.now{background:var(--accent);color:var(--accent-ink);font-weight:500}
-.cls-body{display:grid;gap:10px;min-width:0}
-.cls-body h3{font-family:var(--futura);font-size:19px;font-weight:500;line-height:1.35;letter-spacing:.01em;text-wrap:balance}
-.cls-body .one{font-size:15px;max-width:72ch}
+.mode.sym{background:var(--weak-bg);color:var(--weak)}
+.mode.ws{background:var(--ok-bg);color:var(--ok)}
+.mode.work{background:var(--todo-bg);color:var(--ink-2)}
+.st{display:inline-block;padding:0 7px;border-radius:3px;font-size:11.5px;line-height:1.7;font-weight:500;white-space:nowrap}
+.st.today,.st.live{background:var(--accent);color:var(--accent-ink)}
+.st.next{box-shadow:inset 0 0 0 1px var(--accent);color:var(--accent)}
+.st.soon{background:var(--weak-bg);color:var(--weak)}
+.chev{display:inline-block;width:7px;height:7px;margin:0 4px 2px 6px;border-right:1.5px solid var(--ink-3);border-bottom:1.5px solid var(--ink-3);transform:rotate(-45deg);transition:transform .15s}
+.cls[open] > summary .chev{transform:rotate(45deg)}
+@media (prefers-reduced-motion: reduce){.chev{transition:none}}
+.row.is-past .r-date b{color:var(--ink-3)}
+.row.d.is-past,.row.n.is-past{opacity:.6}
+.row.is-today{box-shadow:inset 3px 0 0 var(--accent);background:linear-gradient(90deg,var(--accent-soft),transparent 65%)}
+.row.is-next .r-date b{color:var(--accent)}
+.cls-body{display:grid;gap:10px;min-width:0;padding:2px 10px 22px 126px}
 .cls-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:12px 28px}
 .cls-grid h4{margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--ink-3)}
 .cls-grid ul{margin:0;padding-left:1.1em;display:grid;gap:5px;font-size:14px;line-height:1.6}
 .cls-foot{font-size:12.5px;color:var(--ink-3);max-width:none}
+#sched[data-view="next"] .row.is-past,#sched[data-view="next"] .round.is-past{display:none}
+#sched[data-view="due"] .row.c:not(.has-due),#sched[data-view="due"] .row.n{display:none}
+#sched[data-view="due"] .row.c .r-sub,#sched[data-view="due"] .row.c .r-en,#sched[data-view="due"] .row.c .r-rel{display:none}
 @media (max-width: 760px){
-  .cls{grid-template-columns:minmax(0,1fr)}
-  .cls-date{grid-auto-flow:column;justify-content:start;align-items:baseline;gap:10px}
+  .now{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .now > div:nth-child(3){padding-left:0;border-left:0}
+  .now > div:nth-child(n+3){border-top:1px solid var(--line)}
+  .r-line,.cls > summary{grid-template-columns:50px minmax(0,1fr);gap:4px 12px;padding:11px 6px}
+  .r-no{display:none}
+  .r-tags{grid-column:2;justify-content:flex-start}
+  .r-tags:empty{display:none}
+  .cls > summary{position:relative;padding-right:30px}
+  .cls > summary .chev{position:absolute;top:19px;right:10px;margin:0}
+  .round-head{padding-inline:6px}
+  .cls-body{padding:0 6px 20px}
   .cls-grid{grid-template-columns:minmax(0,1fr)}
 }
 
@@ -252,7 +317,7 @@ footer p{max-width:none}
 <nav class="toc" aria-label="页面目录"><ol>
   <li><a href="#overview">概览</a></li>
   <li><a href="#portal">原始数据入口</a></li>
-  <li><a href="#classes">课堂记录</a></li>
+  <li><a href="#classes">课程表</a></li>
   <li><a href="#locus">基因与位点</a></li>
   <li><a href="#transcript">转录本</a></li>
   <li><a href="#protein">蛋白</a></li>
@@ -311,14 +376,29 @@ footer p{max-width:none}
 </section>
 
 <section id="classes" aria-labelledby="h-classes">
-  <h2 id="h-classes">课堂记录<small>每节课讲了什么、我拿 LACTBL1 做了什么、对应哪项作业。课件在 Canvas Module 1（需 UMN 登录），第 4、5 次课有录像</small></h2>
-  <ol class="classlog">
-
-    <li class="cls">
-      <div class="cls-date"><span class="d">9/09</span><span class="n">周三 · 第 1 次</span><span class="mode">教室</span></div>
-      <div class="cls-body">
-        <h3>这门课做什么，怎么挑一个"没人研究过"的基因</h3>
-        <p class="one">一整个学期只研究一个功能未知的人类基因，最后写成报告和一篇维基百科词条。第一周先学会怎么挑这个基因。</p>
+  <h2 id="h-classes">课程表<small>整学期 29 节课和全部截止时间，都是芝加哥时间，日期按 Canvas 和课程日程表 9/30 核对。上过的课点开看笔记：讲了什么、我拿 LACTBL1 做了什么。课件在 Canvas（需 UMN 登录）</small></h2>
+  <div class="now" id="nw" aria-live="polite">
+    <div><span class="k">今天</span><span class="v" id="nw-date">9/30 周三</span><span class="s" id="nw-week">第 4 周 / 共 15 周</span></div>
+    <div><span class="k">已上</span><span class="v" id="nw-done">7 / 29</span><span class="s" id="nw-left">还剩 22 节</span></div>
+    <div><span class="k">下一节</span><span class="v" id="nw-next">10/05 周一</span><span class="s" id="nw-next-t">#8 多序列比对</span></div>
+    <div><span class="k">下一个截止</span><span class="v" id="nw-due">10/01 23:59</span><span class="s" id="nw-due-t">PD1 PS1 草稿 · 明天</span></div>
+  </div>
+  <div class="sched-bar">
+    <div class="vq" role="group" aria-label="显示哪些">
+      <button type="button" data-view="all" aria-pressed="true">全部</button>
+      <button type="button" data-view="next" aria-pressed="false">接下来</button>
+      <button type="button" data-view="due" aria-pressed="false">只看截止</button>
+    </div>
+    <p class="key">没标的课都在教室上 · <span class="r-mark">◆</span> 截止 · <span class="warn">⚠</span> Canvas 和日程表对不上的地方</p>
+  </div>
+  <div class="rounds" id="sched" data-view="all">
+  <div class="round" id="r1">
+    <div class="round-head"><h3>第 1 轮 · 基因身份、序列、比对</h3><p>9/9 – 10/4 · 交 PS1：草稿 5 · 互评 3 · 正式 35</p></div>
+    <ol class="sched">
+      <li class="row c has-due is-past" id="c1" data-date="2026-09-09" data-n="1" data-short="课程介绍；怎么挑基因">
+        <details class="cls">
+          <summary><span class="r-date"><b>9/09</b><i>周三</i></span><span class="r-no">#1</span><span class="r-main"><span class="r-title">这门课做什么，怎么挑一个"没人研究过"的基因</span><span class="r-sub">一整个学期只研究一个功能未知的人类基因，最后写成报告和一篇维基百科词条。第一周先学会怎么挑这个基因。</span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item is-past" data-at="2026-09-09T23:59" data-label="CS1 课前问卷"><span class="code">CS1</span><span class="dl">课前问卷</span><span class="t">23:59 · 加分</span></span></span></span><span class="r-tags"><span class="chev" aria-hidden="true"></span></span></summary>
+          <div class="cls-body">
         <div class="cls-grid">
           <div><h4>讲了什么</h4><ul>
             <li>生物信息分析就是用免费的在线数据库和工具研究 DNA、RNA 和蛋白：查序列、翻译、比对、看表达、推测结构和功能。比湿实验快，花的只是时间。</li>
@@ -331,14 +411,13 @@ footer p{max-width:none}
           </ul></div>
         </div>
         <p class="cls-foot">课件：Slides 1-1、1-2 · 当周任务：挑 3 个候选基因，登记到班级表格</p>
-      </div>
-    </li>
-
-    <li class="cls">
-      <div class="cls-date"><span class="d">9/14</span><span class="n">周一 · 第 2 次</span><span class="mode">教室</span></div>
-      <div class="cls-body">
-        <h3>查找生物信息：一个候选基因要查哪些地方</h3>
-        <p class="one">拿一个候选基因按固定顺序查一圈，判断它是不是真的没人研究过，同时把能找到的信息都收齐。</p>
+          </div>
+        </details>
+      </li>
+      <li class="row c is-past" id="c2" data-date="2026-09-14" data-n="2" data-short="查找生物信息">
+        <details class="cls">
+          <summary><span class="r-date"><b>9/14</b><i>周一</i></span><span class="r-no">#2</span><span class="r-main"><span class="r-title">查找生物信息：一个候选基因要查哪些地方</span><span class="r-sub">拿一个候选基因按固定顺序查一圈，判断它是不是真的没人研究过，同时把能找到的信息都收齐。</span></span><span class="r-tags"><span class="chev" aria-hidden="true"></span></span></summary>
+          <div class="cls-body">
         <div class="cls-grid">
           <div><h4>讲了什么</h4><ul>
             <li>检查顺序：维基百科 → NCBI Gene（看页面链接的 PubMed 文献）→ 换成别名再查一遍。</li>
@@ -353,14 +432,13 @@ footer p{max-width:none}
           </ul></div>
         </div>
         <p class="cls-foot">课件：Slides 2-1 · 对应：PS1 第 1 题（文本检索）、第 4 题（维基截图）</p>
-      </div>
-    </li>
-
-    <li class="cls">
-      <div class="cls-date"><span class="d">9/16</span><span class="n">周三 · 第 3 次</span><span class="mode">教室</span></div>
-      <div class="cls-body">
-        <h3>判断信息好坏；把 mRNA 翻译成蛋白</h3>
-        <p class="one">前半节讲怎么评价查到的资料，后半节讲概念翻译：把 mRNA 三个碱基一组翻成氨基酸，和序列对齐排版，再做标注。</p>
+          </div>
+        </details>
+      </li>
+      <li class="row c has-due is-past" id="c3" data-date="2026-09-16" data-n="3" data-short="信息质量；概念翻译">
+        <details class="cls">
+          <summary><span class="r-date"><b>9/16</b><i>周三</i></span><span class="r-no">#3</span><span class="r-main"><span class="r-title">判断信息好坏；把 mRNA 翻译成蛋白</span><span class="r-sub">前半节讲怎么评价查到的资料，后半节讲概念翻译：把 mRNA 三个碱基一组翻成氨基酸，和序列对齐排版，再做标注。</span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item is-past" data-at="2026-09-16T23:59" data-label="CQ1 ChimeIn"><span class="code">CQ1</span><span class="dl">ChimeIn</span><span class="t">23:59 · 2 分</span></span></span></span><span class="r-tags"><span class="chev" aria-hidden="true"></span></span></summary>
+          <div class="cls-body">
         <div class="cls-grid">
           <div><h4>讲了什么</h4><ul>
             <li>好信息的标准：精炼、完整（排除了什么要说清楚）、准确（有出处）、切题、按重要性排好序、够新。检索过程要写到别人能照着重做一遍。</li>
@@ -374,14 +452,13 @@ footer p{max-width:none}
           </ul></div>
         </div>
         <p class="cls-foot">课件：Slides 3-1、2-2 · 对应：PS1 第 2 题 · 课后布置：维基百科培训，和鸡、小鼠的同源蛋白做比对</p>
-      </div>
-    </li>
-
-    <li class="cls">
-      <div class="cls-date"><span class="d">9/21</span><span class="n">周一 · 第 4 次</span><span class="mode zoom">Zoom · 有录像</span></div>
-      <div class="cls-body">
-        <h3>全局序列比对</h3>
-        <p class="one">把人的蛋白和其他物种的同一个蛋白从头到尾对齐，看哪些位置一直没变。没变的位置通常最重要。</p>
+          </div>
+        </details>
+      </li>
+      <li class="row c is-past" id="c4" data-date="2026-09-21" data-n="4" data-short="全局序列比对">
+        <details class="cls">
+          <summary><span class="r-date"><b>9/21</b><i>周一</i></span><span class="r-no">#4</span><span class="r-main"><span class="r-title">全局序列比对</span><span class="r-sub">把人的蛋白和其他物种的同一个蛋白从头到尾对齐，看哪些位置一直没变。没变的位置通常最重要。</span></span><span class="r-tags"><span class="mode zoom">Zoom · 有录像</span><span class="chev" aria-hidden="true"></span></span></summary>
+          <div class="cls-body">
         <div class="cls-grid">
           <div><h4>讲了什么</h4><ul>
             <li>相似和同源是两回事：相似度是个百分比；同源是说两条序列有没有共同祖先，只有"是"和"不是"。比对就是看相似到什么程度才能推断同源。</li>
@@ -398,14 +475,13 @@ footer p{max-width:none}
           </ul></div>
         </div>
         <p class="cls-foot">课件：Slides 4-1 · 对应：PS1 第 3 题（鸡、斑马鱼、最远物种这三组还没做）</p>
-      </div>
-    </li>
-
-    <li class="cls">
-      <div class="cls-date"><span class="d">9/23</span><span class="n">周三 · 第 5 次</span><span class="mode zoom">Zoom · 有录像</span></div>
-      <div class="cls-body">
-        <h3>点阵图：找序列内部的重复</h3>
-        <p class="one">把一条序列和自己（或另一条）画成点阵图，连成斜线的地方就是相似片段；主对角线旁边出现平行斜线，说明序列里有重复。</p>
+          </div>
+        </details>
+      </li>
+      <li class="row c has-due is-past" id="c5" data-date="2026-09-23" data-n="5" data-short="点阵图">
+        <details class="cls">
+          <summary><span class="r-date"><b>9/23</b><i>周三</i></span><span class="r-no">#5</span><span class="r-main"><span class="r-title">点阵图：找序列内部的重复</span><span class="r-sub">把一条序列和自己（或另一条）画成点阵图，连成斜线的地方就是相似片段；主对角线旁边出现平行斜线，说明序列里有重复。</span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item is-past" data-at="2026-09-23T23:59" data-label="WT1 维基培训 1"><span class="code">WT1</span><span class="dl">维基培训 1</span><span class="t">23:59 · 加分</span></span></span></span><span class="r-tags"><span class="mode zoom">Zoom · 有录像</span><span class="chev" aria-hidden="true"></span></span></summary>
+          <div class="cls-body">
         <div class="cls-grid">
           <div><h4>讲了什么</h4><ul>
             <li>局部比对只找一小段一小段的相似，适合"积木式"的蛋白。很多蛋白由几种结构域拼成（例子：凝血因子 XII 和 tPA），这些积木是靠基因内部重复和外显子拼接扩散开的。</li>
@@ -419,30 +495,207 @@ footer p{max-width:none}
           </ul></div>
         </div>
         <p class="cls-foot">课件：Slides 4-2 · 对应：PS1 第 3 题的 dot plot · 同一周：维基百科培训 4 个模块</p>
-      </div>
-    </li>
-
-    <li class="cls">
-      <div class="cls-date"><span class="d">9/28</span><span class="n">周一 · 第 6 次</span><span class="mode now">今天 11:15</span></div>
-      <div class="cls-body">
-        <h3>BLAST：在整个数据库里找相似序列</h3>
-        <p class="one">课件还没发（9/28 上午查过 Canvas）。下面按日程表主题先写预习，上完课再补。</p>
+          </div>
+        </details>
+      </li>
+      <li class="row d is-past" data-date="2026-09-24" data-at="2026-09-26T23:59">
+        <div class="r-line"><span class="r-date"><b>9/24</b><i>至 9/26</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-title">维基培训 2–4</span><span class="r-items"><span class="due-item is-past" data-at="2026-09-24T23:59" data-label="WT2 维基培训 2–4"><span class="code">WT2</span><span class="t">9/24 23:59 · 加分</span></span><span class="due-item is-past" data-at="2026-09-25T23:59" data-label="WT3 维基培训 2–4"><span class="code">WT3</span><span class="t">9/25 23:59 · 加分</span></span><span class="due-item is-past" data-at="2026-09-26T23:59" data-label="WT4 维基培训 2–4"><span class="code">WT4</span><span class="t">9/26 23:59 · 加分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c has-due is-past" id="c6" data-date="2026-09-28" data-n="6" data-short="BLAST">
+        <details class="cls">
+          <summary><span class="r-date"><b>9/28</b><i>周一</i></span><span class="r-no">#6</span><span class="r-main"><span class="r-title">BLAST：拿序列去整个数据库里找长得像的</span><span class="r-sub">BLAST 是局部比对加数据库搜索：只报最像的几段，按分数排，不看名字。这节学怎么设参数、怎么读结果、怎么把命中存成 FASTA。</span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item is-past" data-at="2026-09-28T23:59" data-label="CQ2 ChimeIn"><span class="code">CQ2</span><span class="dl">ChimeIn</span><span class="t">23:59 · 2 分</span></span></span></span><span class="r-tags"><span class="chev" aria-hidden="true"></span></span></summary>
+          <div class="cls-body">
         <div class="cls-grid">
-          <div><h4>预习</h4><ul>
-            <li>BLAST 拿一条序列去整个数据库里找相似片段（局部比对），结果主要看三列：E 值、覆盖度（Query cover）、一致度（Per. Ident）。</li>
-            <li>一致度 20–35% 这一段叫 twilight zone，光看数字判断不了是不是同源。远亲要用 PSI-BLAST 或 DELTA-BLAST 去找。</li>
-            <li>网页版 BLASTp 现在默认搜 ClusteredNR 库；要拿到某个物种的 NP_/XP_ 编号，把库换成 refseq_protein，或在 Organism 栏填物种。</li>
+          <div><h4>讲了什么</h4><ul>
+            <li>五种 BLAST：blastn、blastp、blastx、tblastn、tblastx。找同源物首选 blastp：密码子有简并，DNA 比氨基酸变得快，远亲在 DNA 上早认不出了，在蛋白上还认得出。</li>
+            <li>设置：库选 refseq_protein。Organism 只填 Homo sapiens 是找旁系，填人再勾 exclude 是找直系。网页现在默认 ClusteredNR，会把 90% 以上相同的序列并成一条显示，收同源物容易漏，要改回来。</li>
+            <li>读结果：按分数排，不按一致性排。一致性要和覆盖度（Query cover）一起看：课件里虎鲸那条一致 81%，只盖住 69%，就排在一致 73% 的蝙蝠后面。</li>
+            <li>E 值：在这么大的库里，纯靠运气碰上这么高分的命中，预计有几条。越小越可信，同一条比对库越大 E 值越大。</li>
+            <li>编号 XP_、标 PREDICTED 的是电脑预测的序列，可以用，但要查有没有乱接、有没有缺头缺尾。</li>
+            <li>Twilight zone（课件没单独讲，按 Rost 1999 补）：一致性 20–35% 光看数字判断不了是不是同源。老师布置的规矩是一致性掉到 25% 以下就停。</li>
           </ul></div>
-          <div><h4>我打算做什么</h4><ul>
-            <li>LACTBL1 和旁系 LACTB 只有约 18% 一致，正是 twilight zone 以下的例子。</li>
-            <li>用 BLAST 找鸡、斑马鱼、果蝇的同源蛋白，补齐 PS1 第 3 题。果蝇里如果只搜到 20% 左右、只覆盖一部分的命中，拿它反过来搜人类，回来的是 LACTBL1 才算直系同源。</li>
+          <div><h4>我做了什么</h4><ul>
+            <li>收了 20 条直系同源蛋白，加上人一共 21 条，存成 FASTA：哺乳 3、鸟 2、爬行 3、两栖 2、肉鳍鱼 2、辐鳍鱼 2、软骨鱼 2，七鳃鳗、海葵、海绵、海鞘各 1。人打头，其余按一致性从高到低排，最低 31.8%。</li>
+            <li>最远的 4 条（七鳃鳗、海葵、海绵、海鞘）另外核过：和人 LACTBL1 比对得分 546–871，和旁系 LACTB 只有 54–149，算 LACTBL1 这一支。</li>
+            <li>旁系那个文件还没做。LACTB 和 LACTBL1 全长一致性约 18–23%，正好落在暮光区，判断过程要写清楚。</li>
           </ul></div>
         </div>
-        <p class="cls-foot">课上有 ChimeIn 题 · 下一次（9/30）：BLAT 和 Workshop，带 PS1 草稿</p>
-      </div>
-    </li>
-
-  </ol>
+        <p class="cls-foot">课件：Slides 4-3 · 对应：PS1 第 3 题（找最远的直系同源物）、PS2 第 1 题 · 课后作业：旁系和 20 个直系同源蛋白的 FASTA</p>
+          </div>
+        </details>
+      </li>
+      <li class="row c is-past is-today" id="c7" data-date="2026-09-30" data-n="7" data-short="BLAT；Workshop">
+        <details class="cls" open>
+          <summary><span class="r-date"><b>9/30</b><i>周三</i></span><span class="r-no">#7</span><span class="r-main"><span class="r-title">BLAT：把残缺的序列往两头补全</span><span class="r-sub">有的 mRNA 或蛋白记录两头不全。先用 BLAST 在别的物种和 EST 里找更长的序列，再用 BLAT 放回基因组核对，把缺的那段补上。</span></span><span class="r-tags"><span class="mode ws">Workshop</span><span class="chev" aria-hidden="true"></span></span></summary>
+          <div class="cls-body">
+        <div class="cls-grid">
+          <div><h4>讲了什么</h4><ul>
+            <li>目标：把 mRNA 往 5′ 方向延长（3′ 方向同理），也能补蛋白缺的 N 端或 C 端。</li>
+            <li>做法：拿 5′UTR 加前 5 个密码子去 BLAST，把灵长类直系同源物的 5′UTR 收进一个 FASTA 排在一起，看谁伸得最远、谁缺一截。老师用 SARAF 演示，从别的序列多拿到 10 个碱基。</li>
+            <li>再搜 EST 库（大量又短又糙的 cDNA 片段），又多出 76 bp。Plus/Plus 说明不用取反向互补；遇到 Plus/Minus，表面上多出来的 428 bp 是假象，实际最多多 120 bp，而且要 BLAT 回人类基因组确认。</li>
+            <li>补好 5′ 端以后看 Kozak 序列（CRNCATGR），也能大致看出转录从哪开始。</li>
+            <li>补蛋白的例子：TMEM223 的穿山甲序列从人的第 34 位才对上，N 端缺一截。把人的序列 BLAT 到穿山甲基因组上找，撞上测序缺口，只能换物种或换库。老师特意留着这页，当“BLAT 没找到”的样子。</li>
+          </ul></div>
+          <div><h4>我做了什么</h4><ul>
+            <li>把 NM_001289974.2 整条 BLAT 到 hg38：1,950 nt 全部对上（100%），chr1:22,953,043–22,972,866 负链，跨 19,824 bp。</li>
+            <li>列出 8 个外显子的坐标和 7 个内含子的长度（340–6,879 bp）：外显子 1,950 + 内含子 17,874，正好 19,824。外显子 1 后面接 GT，符合 GT-AG 规则。</li>
+            <li>PS1 英文稿改到第 4 版，带去 Workshop。</li>
+            <li>下一步：这条 mRNA 记录没有 3′UTR（见<a href="#open">还没查的</a>），可以用这节的办法往 3′ 方向找 EST。</li>
+          </ul></div>
+        </div>
+        <p class="cls-foot">课件：Slides 4-4 · 对应：PS1 第 1 题的基因结构 · 接下来：周四 PD1、周六中午 PR1、周日 PS1</p>
+          </div>
+        </details>
+      </li>
+      <li class="row d" data-date="2026-10-01" data-at="2026-10-01T23:59">
+        <div class="r-line"><span class="r-date"><b>10/01</b><i>周四</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-01T23:59" data-label="PD1 PS1 草稿"><span class="code">PD1</span><span class="dl">PS1 草稿</span><span class="t">23:59 · 5 分</span></span></span></span><span class="r-tags"><span class="st soon">最近截止</span></span></div>
+      </li>
+      <li class="row d" data-date="2026-10-03" data-at="2026-10-03T12:00">
+        <div class="r-line"><span class="r-date"><b>10/03</b><i>周六</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-03T12:00" data-label="PR1 PS1 互评"><span class="code">PR1</span><span class="dl">PS1 互评</span><span class="t">12:00 · 3 分</span><span class="warn">⚠ Canvas 写 12:01，日程表写中午，按 12:00 前交</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-10-04" data-at="2026-10-04T23:59">
+        <div class="r-line"><span class="r-date"><b>10/04</b><i>周日</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item big" data-at="2026-10-04T23:59" data-label="PS1 正式版"><span class="code">PS1</span><span class="dl">正式版</span><span class="t">23:59 · 35 分</span></span></span><span class="r-note">Word 或 PDF；页眉写名字和基因名；不抄题干</span></span><span class="r-tags"></span></div>
+      </li>
+    </ol>
+  </div>
+  <div class="round" id="r2">
+    <div class="round-head"><h3>第 2 轮 · 进化与表达</h3><p>10/5 – 10/25 · 交 PS2：草稿 5 · 互评 3 · 正式 35；另有 PS1 面谈、Symposium 1</p></div>
+    <ol class="sched">
+      <li class="row c is-next" id="c8" data-date="2026-10-05" data-n="8" data-short="多序列比对">
+        <div class="r-line"><span class="r-date"><b>10/05</b><i>周一</i></span><span class="r-no">#8</span><span class="r-main"><span class="r-title">多序列比对：怎么挑要一起比的序列</span><span class="r-en" lang="en">How to make a multiple sequence alignment; how to choose sequences to compare</span><span class="r-rel">本站：<a href="#evolution">进化</a> · 课件已发：Slides 5-1</span></span><span class="r-tags"><span class="st next">下一节</span></span></div>
+      </li>
+      <li class="row n" data-date="2026-10-05" data-at="2026-10-09T23:59">
+        <div class="r-line"><span class="r-date"><b>10/05</b><i>至 10/09</i></span><span class="r-no r-mark" aria-hidden="true">○</span><span class="r-main"><span class="r-title">约老师面谈 PS1 反馈</span><span class="r-sub">15–20 分钟，带打印稿；面谈当天交 CR1</span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c" id="c9" data-date="2026-10-07" data-n="9" data-short="编辑多序列比对">
+        <div class="r-line"><span class="r-date"><b>10/07</b><i>周三</i></span><span class="r-no">#9</span><span class="r-main"><span class="r-title">编辑、排版多序列比对，看保守性和化学性质</span><span class="r-en" lang="en">How to edit and format a multiple sequence alignment for conservation and chemistry</span><span class="r-rel">本站：<a href="#evolution">进化</a></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-10-09" data-at="2026-10-09T23:59">
+        <div class="r-line"><span class="r-date"><b>10/09</b><i>周五</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-09T23:59" data-label="CR1 PS1 面谈反馈清单"><span class="code">CR1</span><span class="dl">PS1 面谈反馈清单</span><span class="t">23:59 · 2 分</span><span class="warn">⚠ 大纲要求面谈当天交</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c has-due" id="c10" data-date="2026-10-12" data-n="10" data-short="Symposium 1；进化起源">
+        <div class="r-line"><span class="r-date"><b>10/12</b><i>周一</i></span><span class="r-no">#10</span><span class="r-main"><span class="r-title">Symposium 1 汇报；重建基因的进化起源</span><span class="r-en" lang="en">Symposium 1; How to reconstruct a gene’s evolutionary origins</span><span class="r-rel">本站：<a href="#evolution">进化</a></span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item" data-at="2026-10-12T12:30" data-label="SP1 口头汇报"><span class="code">SP1</span><span class="dl">口头汇报</span><span class="t">12:30 · 5 分</span></span><span class="due-item" data-at="2026-10-12T23:59" data-label="SR1 汇报互评"><span class="code">SR1</span><span class="dl">汇报互评</span><span class="t">23:59 · 3 分</span></span><span class="due-item" data-at="2026-10-12T23:59" data-label="CQ3 ChimeIn"><span class="code">CQ3</span><span class="dl">ChimeIn</span><span class="t">23:59 · 2 分</span></span></span></span><span class="r-tags"><span class="mode sym">汇报</span></span></div>
+      </li>
+      <li class="row c" id="c11" data-date="2026-10-14" data-n="11" data-short="进化速率；复制时间">
+        <div class="r-line"><span class="r-date"><b>10/14</b><i>周三</i></span><span class="r-no">#11</span><span class="r-main"><span class="r-title">进化速率；旁系基因是什么时候复制出来的</span><span class="r-en" lang="en">How to determine rate of evolution; how to determine the date of gene duplication for paralogs</span><span class="r-rel">本站：<a href="#evolution">进化（旁系 LACTB）</a></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c" id="c12" data-date="2026-10-19" data-n="12" data-short="组织表达">
+        <div class="r-line"><span class="r-date"><b>10/19</b><i>周一</i></span><span class="r-no">#12</span><span class="r-main"><span class="r-title">基因在人体各组织里的表达量和表达模式</span><span class="r-en" lang="en">How to determine a gene's full expression level and pattern in human tissues</span><span class="r-rel">本站：<a href="#expression">表达（HPA：视网膜双极细胞）</a></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c" id="c13" data-date="2026-10-21" data-n="13" data-short="条件表达；Workshop">
+        <div class="r-line"><span class="r-date"><b>10/21</b><i>周三</i></span><span class="r-no">#13</span><span class="r-main"><span class="r-title">不同生理条件下的表达</span><span class="r-en" lang="en">How to determine a gene's full expression pattern under different physiological conditions; Workshop</span><span class="r-rel">本站：<a href="#expression">表达</a></span></span><span class="r-tags"><span class="mode ws">Workshop</span></span></div>
+      </li>
+      <li class="row d" data-date="2026-10-22" data-at="2026-10-22T23:59">
+        <div class="r-line"><span class="r-date"><b>10/22</b><i>周四</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-22T23:59" data-label="PD2 PS2 草稿"><span class="code">PD2</span><span class="dl">PS2 草稿</span><span class="t">23:59 · 5 分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-10-24" data-at="2026-10-24T12:00">
+        <div class="r-line"><span class="r-date"><b>10/24</b><i>周六</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-24T12:00" data-label="PR2 PS2 互评"><span class="code">PR2</span><span class="dl">PS2 互评</span><span class="t">12:00 · 3 分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-10-25" data-at="2026-10-25T23:59">
+        <div class="r-line"><span class="r-date"><b>10/25</b><i>周日</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item big" data-at="2026-10-25T23:59" data-label="PS2 正式版"><span class="code">PS2</span><span class="dl">正式版</span><span class="t">23:59 · 35 分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+    </ol>
+  </div>
+  <div class="round" id="r3">
+    <div class="round-head"><h3>第 3 轮 · 调控、RNA、蛋白一级结构</h3><p>10/26 – 11/15 · 交 PS3：草稿 5 · 互评 3 · 正式 35；另有 PS2 面谈、Symposium 2</p></div>
+    <ol class="sched">
+      <li class="row c has-due" id="c14" data-date="2026-10-26" data-n="14" data-short="启动子与 eQTL">
+        <div class="r-line"><span class="r-date"><b>10/26</b><i>周一</i></span><span class="r-no">#14</span><span class="r-main"><span class="r-title">找启动子、调控序列和 eQTL</span><span class="r-en" lang="en">How to find promoters and other regulatory sequences including a gene’s eQTLs</span><span class="r-rel">本站：<a href="#locus">基因与位点</a>、<a href="#literature">上游 SNP rs10158878</a></span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item" data-at="2026-10-26T23:59" data-label="CQ4 ChimeIn"><span class="code">CQ4</span><span class="dl">ChimeIn</span><span class="t">23:59 · 2 分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c" id="c15" data-date="2026-10-28" data-n="15" data-short="启动子与 eQTL（续）">
+        <div class="r-line"><span class="r-date"><b>10/28</b><i>周三</i></span><span class="r-no">#15</span><span class="r-main"><span class="r-title">启动子、调控序列和 eQTL（续）</span><span class="r-en" lang="en">How to find promoters and other regulatory sequences including a gene’s eQTLs</span><span class="r-rel">本站：<a href="#locus">基因与位点</a></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-10-30" data-at="2026-10-30T23:59">
+        <div class="r-line"><span class="r-date"><b>10/30</b><i>周五</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-30T23:59" data-label="CR2 PS2 面谈反馈清单"><span class="code">CR2</span><span class="dl">PS2 面谈反馈清单</span><span class="t">23:59 · 2 分</span></span></span><span class="r-note">先约面谈</span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c has-due" id="c16" data-date="2026-11-02" data-n="16" data-short="Symposium 2">
+        <div class="r-line"><span class="r-date"><b>11/02</b><i>周一</i></span><span class="r-no">#16</span><span class="r-main"><span class="r-title">Symposium 2 汇报</span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item" data-at="2026-11-02T12:30" data-label="SP2 口头汇报"><span class="code">SP2</span><span class="dl">口头汇报</span><span class="t">12:30 · 5 分</span></span><span class="due-item" data-at="2026-11-02T23:59" data-label="SR2 汇报互评"><span class="code">SR2</span><span class="dl">汇报互评</span><span class="t">23:59 · 3 分</span></span></span></span><span class="r-tags"><span class="mode sym">汇报</span></span></div>
+      </li>
+      <li class="row c" id="c17" data-date="2026-11-04" data-n="17" data-short="RNA 结构与调控位点">
+        <div class="r-line"><span class="r-date"><b>11/04</b><i>周三</i></span><span class="r-no">#17</span><span class="r-main"><span class="r-title">预测 RNA 结构，找 miRNA 和 RNA 结合蛋白的调控位点</span><span class="r-en" lang="en">How to predict RNA structure and sites of regulation by miRNA and RNABPs</span><span class="r-rel">本站：<a href="#transcript">转录本（5′UTR 里的 uORF）</a></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c has-due" id="c18" data-date="2026-11-09" data-n="18" data-short="蛋白一级序列">
+        <div class="r-line"><span class="r-date"><b>11/09</b><i>周一</i></span><span class="r-no">#18</span><span class="r-main"><span class="r-title">分析蛋白一级序列；画蛋白示意图</span><span class="r-en" lang="en">How to analyze a protein's primary sequence; how to make a protein diagram</span><span class="r-rel">本站：<a href="#protein">蛋白</a></span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item" data-at="2026-11-09T23:59" data-label="CQ5 ChimeIn"><span class="code">CQ5</span><span class="dl">ChimeIn</span><span class="t">23:59 · 2 分</span></span></span></span><span class="r-tags"><span class="mode zoom">Zoom</span></span></div>
+      </li>
+      <li class="row c" id="c19" data-date="2026-11-11" data-n="19" data-short="翻译后修饰；Workshop">
+        <div class="r-line"><span class="r-date"><b>11/11</b><i>周三</i></span><span class="r-no">#19</span><span class="r-main"><span class="r-title">预测翻译后修饰</span><span class="r-en" lang="en">How to predict post-translational modification; Workshop</span><span class="r-rel">本站：<a href="#protein">蛋白（4 个 N-糖基化候选位点）</a></span></span><span class="r-tags"><span class="mode zoom">Zoom</span><span class="mode ws">Workshop</span></span></div>
+      </li>
+      <li class="row d" data-date="2026-11-12" data-at="2026-11-12T23:59">
+        <div class="r-line"><span class="r-date"><b>11/12</b><i>周四</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-11-12T23:59" data-label="PD3 PS3 草稿"><span class="code">PD3</span><span class="dl">PS3 草稿</span><span class="t">23:59 · 5 分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-11-14" data-at="2026-11-14T12:00">
+        <div class="r-line"><span class="r-date"><b>11/14</b><i>周六</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-11-14T12:00" data-label="PR3 PS3 互评"><span class="code">PR3</span><span class="dl">PS3 互评</span><span class="t">12:00 · 3 分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-11-15" data-at="2026-11-15T23:59">
+        <div class="r-line"><span class="r-date"><b>11/15</b><i>周日</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item big" data-at="2026-11-15T23:59" data-label="PS3 正式版"><span class="code">PS3</span><span class="dl">正式版</span><span class="t">23:59 · 35 分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+    </ol>
+  </div>
+  <div class="round" id="r4">
+    <div class="round-head"><h3>第 4 轮 · 定位、结构、变异、相互作用</h3><p>11/16 – 12/6 · 交 PS4：草稿 5 · 互评 3 · 正式 35；另有 PS3 面谈、Symposium 3</p></div>
+    <ol class="sched">
+      <li class="row c" id="c20" data-date="2026-11-16" data-n="20" data-short="亚细胞定位">
+        <div class="r-line"><span class="r-date"><b>11/16</b><i>周一</i></span><span class="r-no">#20</span><span class="r-main"><span class="r-title">预测亚细胞定位和组织特异定位</span><span class="r-en" lang="en">How to predict protein subcellular and tissue-specific localization</span><span class="r-rel">本站：<a href="#expression">表达（HPA 亚细胞）</a>、<a href="#protein">蛋白（N 端疏水段）</a></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c" id="c21" data-date="2026-11-18" data-n="21" data-short="二级结构">
+        <div class="r-line"><span class="r-date"><b>11/18</b><i>周三</i></span><span class="r-no">#21</span><span class="r-main"><span class="r-title">预测、查看和注释二级结构</span><span class="r-en" lang="en">How to predict, explore & annotate 2° structures</span><span class="r-rel">本站：<a href="#protein">蛋白</a></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-11-20" data-at="2026-11-20T23:59">
+        <div class="r-line"><span class="r-date"><b>11/20</b><i>周五</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-11-20T23:59" data-label="CR3 PS3 面谈反馈清单"><span class="code">CR3</span><span class="dl">PS3 面谈反馈清单</span><span class="t">23:59 · 2 分</span><span class="warn">⚠ Canvas 没设日期，这里按日程表</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c has-due" id="c22" data-date="2026-11-23" data-n="22" data-short="Symposium 3">
+        <div class="r-line"><span class="r-date"><b>11/23</b><i>周一</i></span><span class="r-no">#22</span><span class="r-main"><span class="r-title">Symposium 3 汇报</span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item" data-at="2026-11-23T12:30" data-label="SP3 口头汇报"><span class="code">SP3</span><span class="dl">口头汇报</span><span class="t">12:30 · 5 分</span></span><span class="due-item" data-at="2026-11-23T23:59" data-label="SR3 汇报互评"><span class="code">SR3</span><span class="dl">汇报互评</span><span class="t">23:59 · 3 分</span></span><span class="due-item" data-at="2026-11-23T23:59" data-label="CQ6 ChimeIn"><span class="code">CQ6</span><span class="dl">ChimeIn</span><span class="t">23:59 · 2 分</span></span></span></span><span class="r-tags"><span class="mode sym">汇报</span></span></div>
+      </li>
+      <li class="row c" id="c23" data-date="2026-11-25" data-n="23" data-short="三级结构">
+        <div class="r-line"><span class="r-date"><b>11/25</b><i>周三</i></span><span class="r-no">#23</span><span class="r-main"><span class="r-title">用局部和整体方法预测、注释三级结构</span><span class="r-en" lang="en">How to predict, explore & annotate 3° structures using local and global approaches</span><span class="r-rel">本站：<a href="#protein">蛋白（AlphaFold A8MY62）</a> · 感恩节那周</span></span><span class="r-tags"><span class="mode zoom">录像课</span></span></div>
+      </li>
+      <li class="row c" id="c24" data-date="2026-11-30" data-n="24" data-short="突变与健康影响">
+        <div class="r-line"><span class="r-date"><b>11/30</b><i>周一</i></span><span class="r-no">#24</span><span class="r-main"><span class="r-title">把已知突变放到基因上；估计变异对健康的影响</span><span class="r-en" lang="en">How to map known mutations to a gene; how to estimate health impact of variants</span><span class="r-rel">本站：<a href="#literature">文献与关联（GWAS）</a></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c has-due" id="c25" data-date="2026-12-02" data-n="25" data-short="功能伙伴；Workshop">
+        <div class="r-line"><span class="r-date"><b>12/02</b><i>周三</i></span><span class="r-no">#25</span><span class="r-main"><span class="r-title">找蛋白的功能伙伴，解读相互作用</span><span class="r-en" lang="en">How to identify a protein's functional partners and make sense of the interactions; Workshop</span><span class="r-rel">本站：<a href="#literature">文献与关联（PRC1、ZC3HAV1）</a></span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item" data-at="2026-12-02T23:59" data-label="PD4 PS4 草稿"><span class="code">PD4</span><span class="dl">PS4 草稿</span><span class="t">23:59 · 5 分</span><span class="warn">⚠ Canvas 写 12/3，日程表写周三午夜，按早的交</span></span></span></span><span class="r-tags"><span class="mode ws">Workshop</span></span></div>
+      </li>
+      <li class="row d" data-date="2026-12-05" data-at="2026-12-05T12:00">
+        <div class="r-line"><span class="r-date"><b>12/05</b><i>周六</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-12-05T12:00" data-label="PR4 PS4 互评"><span class="code">PR4</span><span class="dl">PS4 互评</span><span class="t">12:00 · 3 分</span><span class="warn">⚠ 日程表写“周三或周六中午”</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-12-06" data-at="2026-12-06T23:59">
+        <div class="r-line"><span class="r-date"><b>12/06</b><i>周日</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item big" data-at="2026-12-06T23:59" data-label="PS4 正式版"><span class="code">PS4</span><span class="dl">正式版</span><span class="t">23:59 · 35 分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+    </ol>
+  </div>
+  <div class="round" id="r5">
+    <div class="round-head"><h3>收尾 · 维基词条与最终报告</h3><p>12/7 – 12/21 · 维基草稿 5 · 维基互评 9 · 维基终稿 25 · 最终报告 30；Symposium 4</p></div>
+    <ol class="sched">
+      <li class="row c" id="c26" data-date="2026-12-07" data-n="26" data-short="项目工作时间">
+        <div class="r-line"><span class="r-date"><b>12/07</b><i>周一</i></span><span class="r-no">#26</span><span class="r-main"><span class="r-title">项目和维基词条工作时间</span><span class="r-en" lang="en">Project and Wikipedia article work time</span></span><span class="r-tags"><span class="mode work">工作时间</span></span></div>
+      </li>
+      <li class="row c has-due" id="c27" data-date="2026-12-09" data-n="27" data-short="项目工作时间">
+        <div class="r-line"><span class="r-date"><b>12/09</b><i>周三</i></span><span class="r-no">#27</span><span class="r-main"><span class="r-title">项目和维基词条工作时间</span><span class="r-en" lang="en">Project and Wikipedia article work time</span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item" data-at="2026-12-09T23:59" data-label="DWA 维基草稿"><span class="code">DWA</span><span class="dl">维基草稿</span><span class="t">23:59 · 5 分</span></span></span></span><span class="r-tags"><span class="mode work">工作时间</span></span></div>
+      </li>
+      <li class="row d" data-date="2026-12-11" data-at="2026-12-11T23:59">
+        <div class="r-line"><span class="r-date"><b>12/11</b><i>周五</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-12-11T23:59" data-label="CR4 PS4 面谈反馈清单"><span class="code">CR4</span><span class="dl">PS4 面谈反馈清单</span><span class="t">23:59 · 2 分</span><span class="warn">⚠ 日程表写 12/11，Canvas 写 12/22，按早的交</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row c has-due" id="c28" data-date="2026-12-14" data-n="28" data-short="Symposium 4">
+        <div class="r-line"><span class="r-date"><b>12/14</b><i>周一</i></span><span class="r-no">#28</span><span class="r-main"><span class="r-title">Symposium 4 汇报</span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item" data-at="2026-12-14T12:30" data-label="SP4 口头汇报"><span class="code">SP4</span><span class="dl">口头汇报</span><span class="t">12:30 · 5 分</span></span><span class="due-item" data-at="2026-12-14T23:59" data-label="SR4 汇报互评"><span class="code">SR4</span><span class="dl">汇报互评</span><span class="t">23:59 · 3 分</span></span></span></span><span class="r-tags"><span class="mode sym">汇报</span></span></div>
+      </li>
+      <li class="row c" id="c29" data-date="2026-12-16" data-n="29" data-short="展望；课程评价">
+        <div class="r-line"><span class="r-date"><b>12/16</b><i>周三</i></span><span class="r-no">#29</span><span class="r-main"><span class="r-title">生物信息学往后怎么走；课程评价（最后一节）</span><span class="r-en" lang="en">Bioinformatics looking forward & course evaluation</span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-12-17" data-at="2026-12-17T23:59">
+        <div class="r-line"><span class="r-date"><b>12/17</b><i>周四</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-title">维基互评 ×3</span><span class="r-items"><span class="due-item" data-at="2026-12-17T23:59" data-label="WR1–3 维基互评 ×3"><span class="code">WR1–3</span><span class="t">23:59 · 3 × 3 分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-12-18" data-at="2026-12-18T17:00">
+        <div class="r-line"><span class="r-date"><b>12/18</b><i>周五</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item big" data-at="2026-12-18T17:00" data-label="FWA 维基终稿公开"><span class="code">FWA</span><span class="dl">维基终稿公开</span><span class="t">17:00 · 25 分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-12-20" data-at="2026-12-20T17:00">
+        <div class="r-line"><span class="r-date"><b>12/20</b><i>周日</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item big" data-at="2026-12-20T17:00" data-label="FGR 最终基因报告"><span class="code">FGR</span><span class="dl">最终基因报告</span><span class="t">17:00 · 30 分</span><span class="warn">⚠ Canvas 写 23:59，日程表写 17:00，按 17:00</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+      <li class="row d" data-date="2026-12-21" data-at="2026-12-21T12:01">
+        <div class="r-line"><span class="r-date"><b>12/21</b><i>周一</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-12-21T12:01" data-label="CS2 课后问卷"><span class="code">CS2</span><span class="dl">课后问卷</span><span class="t">12:01 · 加分</span></span></span></span><span class="r-tags"></span></div>
+      </li>
+    </ol>
+  </div>
+  </div>
 </section>
 
 <section id="locus" aria-labelledby="h-locus">
@@ -644,6 +897,7 @@ QLVNFYPLDHHGLSPGFDVPGLNTYRVLRLRGKPVFKTQ</pre><button class="btn" type="button" d
 
 <footer>
   <p>数据核对日期 2026-09-28：NCBI Gene、NM/NP 记录、ExPASy ProtParam、InterPro、UCSC 当天页面；表达、约束、文献条目来自 2026-09-13 至 09-15 的数据库查询。每条都附了原始链接，写作业时以原始页面为准。</p>
+  <p>课程表：日期和分值按 Canvas 作业页与课程日程表（Schedule GCD 3485 F26）核对，2026-09-30；课堂笔记依据课件，老师口头讲的没录。</p>
   <p>GCD 3485 · Fall 2026 · Zhiyuan Guo 的学期基因。整理时用了 Claude 协助。</p>
 </footer>
 </div>
@@ -707,6 +961,123 @@ QLVNFYPLDHHGLSPGFDVPGLNTYRVLRLRGKPVFKTQ</pre><button class="btn" type="button" d
     }, { rootMargin: '-30% 0px -60% 0px' });
     Array.prototype.forEach.call(document.querySelectorAll('main section'), function(s){ io.observe(s); });
   }
+})();
+</script>
+
+<script>
+(function(){
+  var root = document.getElementById('sched');
+  if (!root) return;
+  var WD = ['周日','周一','周二','周三','周四','周五','周六'];
+  var START = '11:15', END = '13:10', DAY = 86400000;
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function nowCT(){
+    try {
+      var o = {};
+      new Intl.DateTimeFormat('en-US', {timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'})
+        .formatToParts(new Date()).forEach(function(p){ o[p.type] = p.value; });
+      return o.year + '-' + o.month + '-' + o.day + 'T' + (o.hour === '24' ? '00' : o.hour) + ':' + o.minute;
+    } catch (e) {
+      var d = new Date();
+      return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+    }
+  }
+  function utc(s){ var p = s.slice(0, 10).split('-'); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
+  function md(s){ var p = s.slice(0, 10).split('-'); return (+p[1]) + '/' + p[2]; }
+  function wd(s){ return WD[new Date(utc(s)).getUTCDay()]; }
+  function set(id, t){ var el = document.getElementById(id); if (el) el.textContent = t; }
+  function each(list, fn){ Array.prototype.forEach.call(list, fn); }
+  function chip(row, cls, text){
+    var t = row && row.querySelector('.r-tags'); if (!t) return;
+    var s = document.createElement('span'); s.className = 'st ' + cls; s.textContent = text;
+    t.insertBefore(s, t.firstChild);
+  }
+  function rowOf(el){ while (el && !(el.classList && el.classList.contains('row'))) el = el.parentNode; return el; }
+
+  function paint(){
+    var now = nowCT(), today = now.slice(0, 10);
+    var rows = root.querySelectorAll('.row');
+    each(rows, function(r){
+      r.classList.remove('is-past', 'is-today', 'is-next');
+      each(r.querySelectorAll('.st'), function(x){ x.parentNode.removeChild(x); });
+    });
+
+    var classes = root.querySelectorAll('.row.c'), done = 0, next = null, live = null;
+    each(classes, function(r){
+      var d = r.getAttribute('data-date'), s = d + 'T' + START, e = d + 'T' + END;
+      if (now >= e) { r.classList.add('is-past'); done++; }
+      if (d === today) {
+        r.classList.add('is-today');
+        if (now >= s && now < e) { live = r; chip(r, 'live', '上课中'); }
+        else chip(r, 'today', '今天');
+      }
+      if (!next && now < s) next = r;
+    });
+    if (next && next.getAttribute('data-date') !== today) { next.classList.add('is-next'); chip(next, 'next', '下一节'); }
+
+    each(root.querySelectorAll('.row.d, .row.n'), function(r){
+      if (now > r.getAttribute('data-at')) r.classList.add('is-past');
+    });
+
+    var items = Array.prototype.slice.call(root.querySelectorAll('.due-item'));
+    items.sort(function(a, b){ return a.getAttribute('data-at') < b.getAttribute('data-at') ? -1 : 1; });
+    var soon = null;
+    items.forEach(function(it){
+      var at = it.getAttribute('data-at');
+      it.classList.remove('is-soon');
+      if (now > at) it.classList.add('is-past'); else it.classList.remove('is-past');
+      if (!soon && now <= at) soon = it;
+    });
+    var dueDays = null;
+    if (soon) {
+      soon.classList.add('is-soon');
+      dueDays = Math.round((utc(soon.getAttribute('data-at')) - utc(today)) / DAY);
+      chip(rowOf(soon), 'soon', dueDays === 0 ? '今天截止' : dueDays === 1 ? '明天截止' : '最近截止');
+    }
+
+    each(root.querySelectorAll('.round'), function(g){
+      var rs = g.querySelectorAll('.row'), all = rs.length > 0;
+      each(rs, function(r){ if (!r.classList.contains('is-past')) all = false; });
+      g.classList.toggle('is-past', all);
+    });
+
+    set('nw-date', md(today) + ' ' + wd(today));
+    var w = Math.floor((utc(today) - utc('2026-09-07')) / (7 * DAY)) + 1;
+    set('nw-week', w < 1 ? '还没开学' : w > 15 ? '学期结束' : '第 ' + w + ' 周 / 共 15 周');
+    set('nw-done', done + ' / ' + classes.length);
+    set('nw-left', classes.length > done ? '还剩 ' + (classes.length - done) + ' 节' : '全部上完');
+    var nx = next;
+    if (nx) {
+      var nd = nx.getAttribute('data-date');
+      set('nw-next', md(nd) + ' ' + (nd === today ? START : wd(nd)));
+      set('nw-next-t', (nd === today ? '今天 · ' : '') + '#' + nx.getAttribute('data-n') + ' ' + nx.getAttribute('data-short'));
+    } else { set('nw-next', '—'); set('nw-next-t', live ? '最后一节正在上' : '课都上完了'); }
+    if (soon) {
+      var at = soon.getAttribute('data-at');
+      set('nw-due', md(at) + ' ' + at.slice(11));
+      set('nw-due-t', soon.getAttribute('data-label') + ' · ' + (dueDays === 0 ? '今天' : dueDays === 1 ? '明天' : '还有 ' + dueDays + ' 天'));
+    } else { set('nw-due', '—'); set('nw-due-t', '全部交完'); }
+    return today;
+  }
+
+  var today = paint();
+  var latest = null;
+  each(root.querySelectorAll('.row.c'), function(r){
+    var det = r.querySelector('details');
+    if (det) { det.open = false; if (r.getAttribute('data-date') <= today) latest = det; }
+  });
+  var m = /^#c(\d+)$/.exec(location.hash);
+  if (m) { var t = document.getElementById('c' + m[1]); if (t && t.querySelector('details')) latest = t.querySelector('details'); }
+  if (latest) latest.open = true;
+
+  var btns = root.parentNode.querySelectorAll('.vq button');
+  each(btns, function(b){
+    b.addEventListener('click', function(){
+      root.setAttribute('data-view', b.getAttribute('data-view'));
+      each(btns, function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    });
+  });
+  setInterval(paint, 5 * 60 * 1000);
 })();
 </script>
 
