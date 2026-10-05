@@ -182,6 +182,8 @@ ul.plain li{max-width:72ch}
 .refs .pm{font-family:var(--mono);font-size:12px;white-space:nowrap;align-self:start}
 
 /* sequences */
+details.seq.orth{min-width:0;max-width:100%;overflow:hidden}
+details.seq.orth .tbl-wrap{overflow-x:auto;max-width:100%}
 details.seq{background:var(--surface);border:1px solid var(--line);border-radius:6px}
 details.seq summary{cursor:pointer;padding:10px 14px;font-size:14px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 details.seq summary span{font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
@@ -209,6 +211,7 @@ details.seq summary span{font-family:var(--mono);font-size:12.5px;color:var(--in
 .warn{color:var(--weak)}
 .rounds{display:grid;gap:26px}
 .round{display:grid}
+.round-head .r-prog{flex-basis:100%;font-size:13px;color:var(--ink-2);max-width:72ch;margin-top:4px}
 .round-head{display:flex;flex-wrap:wrap;gap:2px 14px;align-items:baseline;padding:0 10px 8px;border-bottom:2px solid var(--ink)}
 .round-head h3{font-size:17px}
 .round-head p{font-size:12.5px;color:var(--ink-3);max-width:none}
@@ -310,7 +313,7 @@ footer p{max-width:none}
   </ul>
   <p class="seqline" aria-label="起始密码子附近的序列"><span class="utr">…ccagaatcttcc</span><span class="uorf">atgccttggagaga</span><span class="atg">ATG</span><span class="uorf">A</span><span class="cds">AGACCCAGGATGGCTGGTGG…</span></p>
   <p class="seqcap">nt 185–234。紫色下划线是 5′UTR 里的上游小读框 uORF（nt 197–214，MPWRE*），它的终止密码子 TGA 正好压在主起始密码子 ATG（绿色，nt 211）上。</p>
-  <p class="legend"><span>证据标签</span><span class="lg"><span class="ev rec">记录</span> 数据库条目直接写的</span><span class="lg"><span class="ev lit">文献</span> 论文里说的</span><span class="lg"><span class="ev pred">预测</span> 序列推算、没实验</span><span class="lg"><span class="ev todo">待查</span> 还没核实</span><span class="lg"><span class="ev bad">有误</span> 查过是错的</span></p>
+  <p class="legend"><span>证据标签</span><span class="lg"><span class="ev rec">记录</span> 数据库条目直接写的</span><span class="lg"><span class="ev lit">文献</span> 论文里说的</span><span class="lg"><span class="ev pred">预测</span> 序列推算、没实验</span><span class="lg"><span class="ev pred">分析</span> 我在 PS2 里自己算的</span><span class="lg"><span class="ev todo">待查</span> 还没核实</span><span class="lg"><span class="ev bad">有误</span> 查过是错的</span></p>
 </header>
 
 <div class="layout">
@@ -329,8 +332,8 @@ footer p{max-width:none}
 
 <main>
 <section id="overview" aria-labelledby="h-overview">
-  <h2 id="h-overview">概览<small>截至 2026-09-28 能从数据库和文献里确认的事</small></h2>
-  <p class="lead">LACTBL1 编码一个 579 个氨基酸的蛋白，主体是 β-内酰胺酶样折叠。RNA 在视网膜里最多，单细胞数据落在视网膜双极细胞。从七鳃鳗到人都有直系同源物，人类里最近的旁系基因是线粒体丝氨酸蛋白酶 LACTB，但两者一致度只有 18% 左右。这个蛋白本身还没人测过活性。</p>
+  <h2 id="h-overview">概览<small>截至 2026-10-05 能从数据库、文献和 PS2 分析里确认的事</small></h2>
+  <p class="lead">LACTBL1 编码一个 579 个氨基酸的蛋白，主体是 β-内酰胺酶样折叠。RNA 在视网膜里最多，单细胞数据落在视网膜双极细胞。脊椎动物各大类都有直系同源物，最远的一对一直系在海鞘，所以这个基因至少 6 亿年前就有了。人类里唯一能从序列认出来的旁系是线粒体丝氨酸蛋白酶 LACTB，一致度不到 20%，两者分家比刺胞动物和两侧对称动物分家还早。它的进化速度居中：约为细胞色素 c 的 3 倍、纤维蛋白原 α 的一半。最保守的残基集中在 β-内酰胺酶的催化核心。这个蛋白本身还没人测过活性。</p>
   <dl class="facts">
     <div><dt>官方名称</dt><dd>lactamase beta like 1，无别名 <span class="ev rec">记录</span><br><span class="src"><a href="https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:35445" target="_blank" rel="noopener">HGNC</a></span></dd></div>
     <div><dt>位置</dt><dd class="mono">chr1:22,953,043–22,972,866（GRCh38）</dd><dd>1p36.12，负链，跨 19,824 bp <span class="ev rec">记录</span> <span class="src"><a href="https://www.ncbi.nlm.nih.gov/gene/646262" target="_blank" rel="noopener">NCBI Gene</a></span></dd></div>
@@ -339,8 +342,8 @@ footer p{max-width:none}
     <div><dt>蛋白</dt><dd>579 aa，63,506 Da，pI 9.00 <span class="ev rec">记录</span> <span class="src"><a href="https://web.expasy.org/cgi-bin/protparam/protparam1?A8MY62@noft@" target="_blank" rel="noopener">ProtParam</a></span></dd></div>
     <div><dt>结构域</dt><dd>AmpC 区 aa 70–410（NP 记录）；Pfam PF00144：NCBI 给 87–411，InterPro 给 87–435 <span class="ev rec">记录</span></dd></div>
     <div><dt>表达</dt><dd>HPA：视网膜富集，单细胞在双极细胞；GTEx 各组织几乎为 0（GTEx 没有视网膜） <span class="ev rec">记录</span></dd></div>
-    <div><dt>同源</dt><dd>哺乳类到七鳃鳗都有；硬骨鱼另列为 lactbl1a；无脊椎动物里 NCBI 没列 <span class="ev todo">待查</span></dd></div>
-    <div><dt>疾病</dt><dd>无 OMIM、无孟德尔病；只有附近 SNP 的 GWAS 关联 <span class="ev lit">文献</span></dd></div>
+    <div><dt>同源</dt><dd>NCBI 列 553 个物种（羊膜动物为主）；Ensembl 补上辐鳍鱼和海鞘。无脊椎里海鞘是一对一直系，海葵是 8 个共直系，海绵不确定 <span class="ev pred">分析</span> <span class="src"><a href="#evolution">进化</a></span></dd></div>
+    <div><dt>疾病</dt><dd>无 OMIM、无孟德尔病；只有 GWAS 的弱关联（屈光异常、早泄提示性信号） <span class="ev lit">文献</span></dd></div>
   </dl>
 </section>
 
@@ -548,36 +551,36 @@ footer p{max-width:none}
         </details>
       </li>
       <li class="row d" data-date="2026-10-01" data-at="2026-10-01T23:59">
-        <div class="r-line"><span class="r-date"><b>10/01</b><i>周四</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-01T23:59" data-label="PD1 PS1 草稿"><span class="code">PD1</span><span class="dl">PS1 草稿</span><span class="t">23:59 · 5 分</span></span></span></span><span class="r-tags"><span class="st soon">最近截止</span></span></div>
+        <div class="r-line"><span class="r-date"><b>10/01</b><i>周四</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-01T23:59" data-label="PD1 PS1 草稿"><span class="code">PD1</span><span class="dl">PS1 草稿</span><span class="t">23:59 · 5 分</span></span></span><span class="r-note">✓ 已交，同时发给互评搭档 Viet（Pair 3）</span></span><span class="r-tags"><span class="st soon">最近截止</span></span></div>
       </li>
       <li class="row d" data-date="2026-10-03" data-at="2026-10-03T12:00">
-        <div class="r-line"><span class="r-date"><b>10/03</b><i>周六</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-03T12:00" data-label="PR1 PS1 互评"><span class="code">PR1</span><span class="dl">PS1 互评</span><span class="t">12:00 · 3 分</span><span class="warn">⚠ Canvas 写 12:01，日程表写中午，按 12:00 前交</span></span></span></span><span class="r-tags"></span></div>
+        <div class="r-line"><span class="r-date"><b>10/03</b><i>周六</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-03T12:00" data-label="PR1 PS1 互评"><span class="code">PR1</span><span class="dl">PS1 互评</span><span class="t">12:00 · 3 分</span><span class="warn">⚠ Canvas 写 12:01，日程表写中午，按 12:00 前交</span></span></span><span class="r-note">✓ 10/3 已交 Canvas：给 Viet 的 LOC124900986 写了评审。他给我的意见：句子太长；问 poly(A) 在哪</span></span><span class="r-tags"></span></div>
       </li>
       <li class="row d" data-date="2026-10-04" data-at="2026-10-04T23:59">
-        <div class="r-line"><span class="r-date"><b>10/04</b><i>周日</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item big" data-at="2026-10-04T23:59" data-label="PS1 正式版"><span class="code">PS1</span><span class="dl">正式版</span><span class="t">23:59 · 35 分</span></span></span><span class="r-note">Word 或 PDF；页眉写名字和基因名；不抄题干</span></span><span class="r-tags"></span></div>
+        <div class="r-line"><span class="r-date"><b>10/04</b><i>周日</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item big" data-at="2026-10-04T23:59" data-label="PS1 正式版"><span class="code">PS1</span><span class="dl">正式版</span><span class="t">23:59 · 35 分</span></span></span><span class="r-note">Word 或 PDF；页眉写名字和基因名；不抄题干。终稿 v7 按 Viet 的互评改：全文压句子、重写 1.1、补 poly(A) 说明（记录停在 TGA，没有 3′UTR）。10/5 补查了 Google Scholar 和 USPTO</span></span><span class="r-tags"></span></div>
       </li>
     </ol>
   </div>
   <div class="round" id="r2">
-    <div class="round-head"><h3>第 2 轮 · 进化与表达</h3><p>10/5 – 10/25 · 交 PS2：草稿 5 · 互评 3 · 正式 35；另有 PS1 面谈、Symposium 1</p></div>
+    <div class="round-head"><h3>第 2 轮 · 进化与表达</h3><p>10/5 – 10/25 · 交 PS2：草稿 5 · 互评 3 · 正式 35；另有 PS1 面谈、Symposium 1</p><p class="r-prog">PS2 进度（10/4 草稿 v33）：15 项里 12 项已写进草稿，AI 声明和全稿质检做了一半，表达那题等 10/19、10/21 的课。MSA、进化树、速率都是先做的，要等 10/7、10/12、10/14 的课件对一遍方法。结果见<a href="#evolution">进化</a>。</p></div>
     <ol class="sched">
       <li class="row c is-next" id="c8" data-date="2026-10-05" data-n="8" data-short="多序列比对">
-        <div class="r-line"><span class="r-date"><b>10/05</b><i>周一</i></span><span class="r-no">#8</span><span class="r-main"><span class="r-title">多序列比对：怎么挑要一起比的序列</span><span class="r-en" lang="en">How to make a multiple sequence alignment; how to choose sequences to compare</span><span class="r-rel">本站：<a href="#evolution">进化</a> · 课件已发：Slides 5-1</span></span><span class="r-tags"><span class="st next">下一节</span></span></div>
+        <div class="r-line"><span class="r-date"><b>10/05</b><i>周一</i></span><span class="r-no">#8</span><span class="r-main"><span class="r-title">多序列比对：怎么挑要一起比的序列</span><span class="r-en" lang="en">How to make a multiple sequence alignment; how to choose sequences to compare</span><span class="r-rel">本站：<a href="#evolution">进化</a> · 课件已发：Slides 5-1 · 已先用 FAMSA 做了三组 MSA（严格直系 17 条、远缘同源 8 条、旁系 12 条），课后对照 Clustal Omega</span></span><span class="r-tags"><span class="st next">下一节</span></span></div>
       </li>
       <li class="row n" data-date="2026-10-05" data-at="2026-10-09T23:59">
         <div class="r-line"><span class="r-date"><b>10/05</b><i>至 10/09</i></span><span class="r-no r-mark" aria-hidden="true">○</span><span class="r-main"><span class="r-title">约老师面谈 PS1 反馈</span><span class="r-sub">15–20 分钟，带打印稿；面谈当天交 CR1</span></span><span class="r-tags"></span></div>
       </li>
       <li class="row c" id="c9" data-date="2026-10-07" data-n="9" data-short="编辑多序列比对">
-        <div class="r-line"><span class="r-date"><b>10/07</b><i>周三</i></span><span class="r-no">#9</span><span class="r-main"><span class="r-title">编辑、排版多序列比对，看保守性和化学性质</span><span class="r-en" lang="en">How to edit and format a multiple sequence alignment for conservation and chemistry</span><span class="r-rel">本站：<a href="#evolution">进化</a></span></span><span class="r-tags"></span></div>
+        <div class="r-line"><span class="r-date"><b>10/07</b><i>周三</i></span><span class="r-no">#9</span><span class="r-main"><span class="r-title">编辑、排版多序列比对，看保守性和化学性质</span><span class="r-en" lang="en">How to edit and format a multiple sequence alignment for conservation and chemistry</span><span class="r-rel">本站：<a href="#evolution">进化（最保守的 29 个残基）</a> · 着色和共识行按课件改</span></span><span class="r-tags"></span></div>
       </li>
       <li class="row d" data-date="2026-10-09" data-at="2026-10-09T23:59">
         <div class="r-line"><span class="r-date"><b>10/09</b><i>周五</i></span><span class="r-no r-mark" aria-hidden="true">◆</span><span class="r-main"><span class="r-items"><span class="due-item" data-at="2026-10-09T23:59" data-label="CR1 PS1 面谈反馈清单"><span class="code">CR1</span><span class="dl">PS1 面谈反馈清单</span><span class="t">23:59 · 2 分</span><span class="warn">⚠ 大纲要求面谈当天交</span></span></span></span><span class="r-tags"></span></div>
       </li>
       <li class="row c has-due" id="c10" data-date="2026-10-12" data-n="10" data-short="Symposium 1；进化起源">
-        <div class="r-line"><span class="r-date"><b>10/12</b><i>周一</i></span><span class="r-no">#10</span><span class="r-main"><span class="r-title">Symposium 1 汇报；重建基因的进化起源</span><span class="r-en" lang="en">Symposium 1; How to reconstruct a gene’s evolutionary origins</span><span class="r-rel">本站：<a href="#evolution">进化</a></span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item" data-at="2026-10-12T12:30" data-label="SP1 口头汇报"><span class="code">SP1</span><span class="dl">口头汇报</span><span class="t">12:30 · 5 分</span></span><span class="due-item" data-at="2026-10-12T23:59" data-label="SR1 汇报互评"><span class="code">SR1</span><span class="dl">汇报互评</span><span class="t">23:59 · 3 分</span></span><span class="due-item" data-at="2026-10-12T23:59" data-label="CQ3 ChimeIn"><span class="code">CQ3</span><span class="dl">ChimeIn</span><span class="t">23:59 · 2 分</span></span></span></span><span class="r-tags"><span class="mode sym">汇报</span></span></div>
+        <div class="r-line"><span class="r-date"><b>10/12</b><i>周一</i></span><span class="r-no">#10</span><span class="r-main"><span class="r-title">Symposium 1 汇报；重建基因的进化起源</span><span class="r-en" lang="en">Symposium 1; How to reconstruct a gene’s evolutionary origins</span><span class="r-rel">本站：<a href="#evolution">进化（起源、两棵无根树）</a> · 建树方法按课件核对</span><span class="r-due"><span class="r-due-k">当天截止</span><span class="due-item" data-at="2026-10-12T12:30" data-label="SP1 口头汇报"><span class="code">SP1</span><span class="dl">口头汇报</span><span class="t">12:30 · 5 分</span></span><span class="due-item" data-at="2026-10-12T23:59" data-label="SR1 汇报互评"><span class="code">SR1</span><span class="dl">汇报互评</span><span class="t">23:59 · 3 分</span></span><span class="due-item" data-at="2026-10-12T23:59" data-label="CQ3 ChimeIn"><span class="code">CQ3</span><span class="dl">ChimeIn</span><span class="t">23:59 · 2 分</span></span></span></span><span class="r-tags"><span class="mode sym">汇报</span></span></div>
       </li>
       <li class="row c" id="c11" data-date="2026-10-14" data-n="11" data-short="进化速率；复制时间">
-        <div class="r-line"><span class="r-date"><b>10/14</b><i>周三</i></span><span class="r-no">#11</span><span class="r-main"><span class="r-title">进化速率；旁系基因是什么时候复制出来的</span><span class="r-en" lang="en">How to determine rate of evolution; how to determine the date of gene duplication for paralogs</span><span class="r-rel">本站：<a href="#evolution">进化（旁系 LACTB）</a></span></span><span class="r-tags"></span></div>
+        <div class="r-line"><span class="r-date"><b>10/14</b><i>周三</i></span><span class="r-no">#11</span><span class="r-main"><span class="r-title">进化速率；旁系基因是什么时候复制出来的</span><span class="r-en" lang="en">How to determine rate of evolution; how to determine the date of gene duplication for paralogs</span><span class="r-rel">本站：<a href="#evolution">进化（速率、LACTB 复制时间）</a> · m 的公式和拟合方式按课件核对</span></span><span class="r-tags"></span></div>
       </li>
       <li class="row c" id="c12" data-date="2026-10-19" data-n="12" data-short="组织表达">
         <div class="r-line"><span class="r-date"><b>10/19</b><i>周一</i></span><span class="r-no">#12</span><span class="r-main"><span class="r-title">基因在人体各组织里的表达量和表达模式</span><span class="r-en" lang="en">How to determine a gene's full expression level and pattern in human tissues</span><span class="r-rel">本站：<a href="#expression">表达（HPA：视网膜双极细胞）</a></span></span><span class="r-tags"></span></div>
@@ -841,33 +844,80 @@ QLVNFYPLDHHGLSPGFDVPGLNTYRVLRLRGKPVFKTQ</pre><button class="btn" type="button" d
 </section>
 
 <section id="evolution" aria-labelledby="h-evolution">
-  <h2 id="h-evolution">进化<small>NCBI Orthologs（551 条，9/13 下载）+ Gene 检索</small></h2>
+  <h2 id="h-evolution">进化<small>PS2 分析，10/2–10/4；方法和全部数字在 PS2 草稿 v33</small></h2>
+  <p class="lead">LACTBL1 是个老基因。脊椎动物各大类都有它，海鞘里有一对一的直系，所以 6 亿年前的脊索动物祖先就带着它。它和旁系 LACTB 分家更早：海葵里两种都有，复制发生在刺胞动物和两侧对称动物分开（约 6.8 亿年前）之前。两侧对称动物里只在脊索动物找到它，线虫、果蝇这一支没有。</p>
   <div class="tbl-wrap"><table>
-    <thead><tr><th>类群</th><th>状态</th><th>代表物种（NCBI Gene ID）</th></tr></thead>
+    <thead><tr><th>类群</th><th>状态</th><th>代表物种 · 和人的一致度（分歧时间）</th></tr></thead>
     <tbody>
-      <tr><td>哺乳类</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/242707" target="_blank" rel="noopener">小鼠 242707</a><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/362633" target="_blank" rel="noopener">大鼠 362633</a><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/100025208" target="_blank" rel="noopener">负鼠 100025208</a><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/100088056" target="_blank" rel="noopener">鸭嘴兽 100088056</a></td></tr>
-      <tr><td>鸟类</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/769085" target="_blank" rel="noopener">鸡 769085</a><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/100226060" target="_blank" rel="noopener">斑胸草雀 100226060</a></td></tr>
-      <tr><td>爬行类</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/100558241" target="_blank" rel="noopener">绿安乐蜥 100558241</a><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/102934453" target="_blank" rel="noopener">绿海龟 102934453</a><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/102560286" target="_blank" rel="noopener">密河鳄 102560286</a></td></tr>
-      <tr><td>两栖类</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/116410950" target="_blank" rel="noopener">热带爪蟾 116410950</a><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/138472600" target="_blank" rel="noopener">美西螈 138472600</a></td></tr>
-      <tr><td>肺鱼</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/122792879" target="_blank" rel="noopener">西非肺鱼 122792879</a></td></tr>
-      <tr><td>硬骨鱼</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/568717" target="_blank" rel="noopener">斑马鱼 lactbl1a 568717</a> NCBI 把硬骨鱼单独列，100 多条</td></tr>
-      <tr><td>软骨鱼</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/116990427" target="_blank" rel="noopener">刺鳐 LOC116990427</a></td></tr>
-      <tr><td>七鳃鳗（无颌类）</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/144936302" target="_blank" rel="noopener">河七鳃鳗 144936302</a><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/144722826" target="_blank" rel="noopener">溪七鳃鳗 144722826</a></td></tr>
-      <tr><td>无脊椎动物</td><td><span class="ev todo">待查</span></td><td>NCBI 没列。用 BLASTp / DELTA-BLAST 限定物种查一遍，拿命中序列反向 BLAST 回人类，回来的是 LACTBL1 才算直系同源。</td></tr>
+      <tr><td>哺乳类</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/242707" target="_blank" rel="noopener">小鼠 242707</a> 81.1%（84 MYA）· 负鼠 72.8% · 鸭嘴兽 66.4%（181 MYA）</td></tr>
+      <tr><td>爬行类和鸟</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/769085" target="_blank" rel="noopener">鸡 769085</a> 62.3% · 安乐蜥 64.3% · 锦龟 64.2% · 短吻鳄 60.8%（都是 319 MYA）</td></tr>
+      <tr><td>两栖类</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/116410950" target="_blank" rel="noopener">热带爪蟾 116410950</a> 59.1% · 美西螈 61.0%（352 MYA）</td></tr>
+      <tr><td>肉鳍鱼</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/122792879" target="_blank" rel="noopener">西非肺鱼 122792879</a> 55.8% · 腔棘鱼 58.3%（402–413 MYA）</td></tr>
+      <tr><td>辐鳍鱼</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/568717" target="_blank" rel="noopener">斑马鱼 lactbl1a 568717</a> 50.6% · 雀鳝 56.7%（435 MYA）。NCBI Datasets 的直系表里一条都没有，靠 Ensembl 和 BLAST O2 补上</td></tr>
+      <tr><td>软骨鱼</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/116990427" target="_blank" rel="noopener">刺鳐 LOC116990427</a> 55.1% · 象鲨 56.8%（463 MYA）</td></tr>
+      <tr><td>七鳃鳗（无颌类）</td><td><span class="ev rec">有</span></td><td><a class="gid" href="https://www.ncbi.nlm.nih.gov/gene/144936302" target="_blank" rel="noopener">河七鳃鳗 144936302</a>；海七鳃鳗的模型不全（标了 LOW QUALITY），一致度 29.6% 主要是空位拉低的</td></tr>
+      <tr><td>海鞘（尾索动物）</td><td><span class="ev pred">分析</span></td><td>玻璃海鞘 XP_078489512.1，29.8%（601 MYA）。双向最佳匹配通过，Ensembl 也判一对一直系。<b>最远的严格直系</b></td></tr>
+      <tr><td>海葵（刺胞动物）</td><td><span class="ev pred">分析</span></td><td>XP_020906969.1，30.2%（682 MYA）。海葵有 8 个同亚家族基因，第二名分数很接近，算一对多的共直系；另有 1 个 LACTB 型基因</td></tr>
+      <tr><td>海绵</td><td><span class="ev pred">分析</span></td><td>XP_003387189.1，26.8%（750 MYA）。偏向 LACTBL1，但海绵里没有 LACTB 型基因可比，判不了</td></tr>
+      <tr><td>原口、棘皮、半索、文昌鱼</td><td><span class="ev bad">没找到</span></td><td>BLAST 非脊椎 RefSeq 前 1,000 条里没有；文昌鱼基因组 tblastn 最好 E = 5.4。是丢了还是变得认不出来，没测</td></tr>
+      <tr><td>原生生物、真菌、细菌</td><td><span class="ev rec">同家族</span></td><td>网柄菌、真菌和 757 条细菌蛋白都命中（E ≤ 10⁻¹³），是整个 β-内酰胺酶家族的同源物，不是直系</td></tr>
     </tbody>
   </table></div>
+  <p class="note">一致度：全局比对，EBLOSUM62，gap 10/0.5，分母含空位（先复现了 PS1 六次 Needle，结果完全一样）。分歧时间：TimeTree 5 中位数。NCBI Datasets 列 553 个物种的直系（10/2），比 9/13 下载时多 2 个。</p>
+
   <div class="cols">
-    <div class="card"><h3>人 vs 小鼠</h3>
-      <div class="stat"><span class="v">81.1%</span><span class="u">一致 · 相似 86.4% · 空位 0.3%</span></div>
-      <p class="note">EMBOSS Needle，EBLOSUM62，NP_001276903.1 vs NP_001230191.1（2026-09-21）。</p></div>
     <div class="card"><h3>旁系 LACTB</h3>
-      <div class="stat"><span class="v">~18%</span><span class="u">一致（Ensembl 17.6% / 18.6%）</span></div>
-      <p class="note">比 twilight zone 的下限 20% 还低（Rost 1999：一致度 20–35% 光凭数字判断不了同源）。两者共享 Pfam PF00144，但 PANTHER 放在不同家族：LACTB 是 PTHR46520。</p></div>
+      <div class="stat"><span class="v">E = 6×10⁻⁸</span><span class="u">phmmer 局部命中两段 β-内酰胺酶结构域</span></div>
+      <p class="note">全长全局比对只有 15.9%，和打乱序列的对照（11.5 ± 4.6%）分不开，靠 HMMER 才认出来。BLAST 搜全部人类 RefSeq 只命中 LACTBL1 自己。GLS、GLS2 只是同一种折叠，序列上无命中；LACTB2 名字像，其实是金属 β-内酰胺酶，不同源。</p></div>
+    <div class="card"><h3>进化速度</h3>
+      <div class="stat"><span class="v">0.62×10⁻⁹</span><span class="u">替换 / 位点 / 年（16 种有颌脊椎动物拟合）</span></div>
+      <p class="note">细胞色素 c 0.20、纤维蛋白原 α 1.39，LACTBL1 夹在中间。m = −ln(1 − p)，过原点直线拟合。三种哺乳类都偏高，两个参照蛋白也一样，问题出在哺乳类的点上，不是 LACTBL1 本身。</p></div>
+    <div class="card"><h3>LACTB 复制时间</h3>
+      <div class="stat"><span class="v">≥ ~9 亿年</span><span class="u">粗估 0.92–1.01 Gya，只能当下限</span></div>
+      <p class="note">人 LACTBL1 vs LACTB：p = 0.684，m = 1.15，除以两者各自的速率。p 这么高时 Poisson 校正会低估 m。和海葵两种基因都有的结论一致：早于 6.8 亿年。</p></div>
+    <div class="card"><h3>最保守的 5%</h3>
+      <div class="stat"><span class="v">29 个残基</span><span class="u">7 个在三组比对里全不变</span></div>
+      <p class="note">S142、K145、T208、G218、Y256、S333、D337 全不变。29 个里 28 个落在 Pfam 结构域（87–435），对得上大肠杆菌 AmpC 的催化中心（S142-x-x-K145 ↔ Ser80/Lys83）。N 端跨膜段一个都没有。说明它保住了折叠，可能也保住了活性位点；底物是什么，序列说不出来。</p></div>
+    <div class="card"><h3>两棵无根树</h3>
+      <p class="note">基因树（17 条严格直系，NJ，1,000 次 bootstrap）找回物种树里 6 个分组，支持度 95–100%。不一致的地方都在短枝上、支持度低于 85%，没有旁系混进直系集的迹象。海鞘被拉到哺乳类旁边，大概是长枝吸引。时间校准树用 TimeTree 给 16 个节点定年。</p></div>
+    <div class="card"><h3>三组多序列比对</h3>
+      <p class="note">FAMSA 本地做：严格直系 17 条、远缘同源 8 条（含细菌 AmpC）、旁系 12 条（LACTBL1 和 LACTB 各 6 个物种）。标了结构域、外显子边界和共识行。10/5、10/7 课后按课件和 Clustal Omega 再对一遍。</p></div>
   </div>
+
+  <details class="seq orth">
+    <summary>直系表：人 + 20 个物种（PS2 Table 4）<span>点开</span></summary>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>物种</th><th>类群</th><th>MYA</th><th>Accession</th><th>aa</th><th>一致</th><th>相似</th></tr></thead>
+      <tbody>
+        <tr><td>人</td><td>灵长类</td><td>—</td><td class="mono">NP_001276903.1</td><td>579</td><td>100</td><td>100</td></tr>
+        <tr><td>小鼠</td><td>啮齿类</td><td>83.5</td><td class="mono">NP_001230191.1</td><td>581</td><td>81.1</td><td>86.4</td></tr>
+        <tr><td>灰短尾负鼠</td><td>有袋类</td><td>159.2</td><td class="mono">XP_007491271.2</td><td>584</td><td>72.8</td><td>80.7</td></tr>
+        <tr><td>鸭嘴兽</td><td>单孔类</td><td>181.2</td><td class="mono">XP_028922027.1</td><td>588</td><td>66.4</td><td>75.8</td></tr>
+        <tr><td>绿安乐蜥</td><td>有鳞类</td><td>318.8</td><td class="mono">XP_062821609.1</td><td>568</td><td>64.3</td><td>77.2</td></tr>
+        <tr><td>西部锦龟</td><td>龟鳖类</td><td>318.8</td><td class="mono">XP_065431380.1</td><td>588</td><td>64.2</td><td>76.7</td></tr>
+        <tr><td>鸡</td><td>鸡形目</td><td>318.8</td><td class="mono">XP_040507344.1</td><td>596</td><td>62.3</td><td>73.4</td></tr>
+        <tr><td>密河鳄</td><td>鳄类</td><td>318.8</td><td class="mono">XP_059572258.1</td><td>616</td><td>60.8</td><td>72.1</td></tr>
+        <tr><td>美西螈</td><td>有尾类</td><td>352.1</td><td class="mono">XP_069466964.1</td><td>590</td><td>61.0</td><td>74.5</td></tr>
+        <tr><td>热带爪蟾</td><td>无尾类</td><td>352.1</td><td class="mono">XP_031758511.1</td><td>587</td><td>59.1</td><td>71.3</td></tr>
+        <tr><td>西非肺鱼</td><td>肺鱼</td><td>402.2</td><td class="mono">XP_043916373.1</td><td>527</td><td>55.8</td><td>68.8</td></tr>
+        <tr><td>腔棘鱼</td><td>腔棘鱼</td><td>412.5</td><td class="mono">XP_014353639.1</td><td>567</td><td>58.3</td><td>72.0</td></tr>
+        <tr><td>雀鳝</td><td>全骨鱼</td><td>435.1</td><td class="mono">XP_069039981.1</td><td>601</td><td>56.7</td><td>71.1</td></tr>
+        <tr><td>斑马鱼</td><td>真骨鱼</td><td>435.1</td><td class="mono">XP_087129935.1</td><td>653</td><td>50.6</td><td>64.1</td></tr>
+        <tr><td>象鲨</td><td>全头类</td><td>463.2</td><td class="mono">XP_007905476.1</td><td>566</td><td>56.8</td><td>70.7</td></tr>
+        <tr><td>刺鳐</td><td>鳐类</td><td>463.2</td><td class="mono">XP_032903974.1</td><td>555</td><td>55.1</td><td>69.3</td></tr>
+        <tr><td>海七鳃鳗 †</td><td>无颌类</td><td>562.8</td><td class="mono">XP_032824006.2</td><td>385</td><td>29.6</td><td>38.8</td></tr>
+        <tr><td>玻璃海鞘</td><td>尾索动物</td><td>601.0</td><td class="mono">XP_078489512.1</td><td>525</td><td>29.8</td><td>46.8</td></tr>
+        <tr><td>海葵 Aiptasia</td><td>刺胞动物</td><td>682.3</td><td class="mono">XP_020906969.1</td><td>551</td><td>30.2</td><td>45.9</td></tr>
+        <tr><td>海绵 Amphimedon</td><td>多孔动物</td><td>750.1</td><td class="mono">XP_003387189.1</td><td>535</td><td>26.8</td><td>41.7</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note" style="padding:0 14px 12px">一致、相似为 %，对人 NP_001276903.1 的全局比对。† 部分模型。序列 9/28 从 NCBI Protein 取。</p>
+  </details>
 </section>
 
 <section id="literature" aria-labelledby="h-literature">
   <h2 id="h-literature">文献与关联<small>还没有以 LACTBL1 为标题的论文，下面都是顺带提到它的</small></h2>
+  <p class="note">10/5 补查：Google Scholar 搜 "LACTBL1" 约 82 条，只看了第 1 页（翻页被人机验证拦下）；USPTO Patent Public Search 67 条，31 条是同一族蛋白降解剂专利，LACTBL1 只出现在长基因名单里，没有一项以它为主题。</p>
   <ol class="refs">
     <li><span class="cite">Ito &amp; Utsunomiya-Tate 2025, <i>J Biol Chem</i></span><a class="pm" href="https://pubmed.ncbi.nlm.nih.gov/40286848/" target="_blank" rel="noopener">PMID 40286848</a><span class="what"><span class="ev lit">文献</span> AlphaFold2 结构比较：LACTBL1 与细菌 D-天冬氨酸内肽酶（paenidase）结构相似，关键 Tyr 保守；重组片段不溶，没有测活性。目前最有分量的结构线索。</span></li>
     <li><span class="cite">Indrischek et al. 2022, <i>eLife</i></span><a class="pm" href="https://pubmed.ncbi.nlm.nih.gov/35727138/" target="_blank" rel="noopener">PMID 35727138</a><span class="what"><span class="ev lit">文献</span> 表达模式与光传导、视觉基因聚类。文中说它是 “putative serine proteinase”，引的却是 LACTB 的论文。</span></li>
@@ -875,29 +925,36 @@ QLVNFYPLDHHGLSPGFDVPGLNTYRVLRLRGKPVFKTQ</pre><button class="btn" type="button" d
     <li><span class="cite">Zheng et al. 2025, <i>Sci Data</i></span><a class="pm" href="https://pubmed.ncbi.nlm.nih.gov/40057523/" target="_blank" rel="noopener">PMID 40057523</a><span class="what"><span class="ev lit">文献</span> PARP 家族 TurboID 邻近标记，给出 ZC3HAV1 互作。NCBI Gene 现在链的第 3 篇。</span></li>
     <li><span class="cite">Gregory et al. 2006, <i>Nature</i></span><a class="pm" href="https://pubmed.ncbi.nlm.nih.gov/16710414/" target="_blank" rel="noopener">PMID 16710414</a><span class="what">1 号染色体测序与注释。LACTBL1 只是因为在这条染色体上被收录。</span></li>
     <li><span class="cite">GWAS Catalog：rs10158878</span><a class="pm" href="https://www.ebi.ac.uk/gwas/variants/rs10158878" target="_blank" rel="noopener">GWAS</a><span class="what"><span class="ev lit">文献</span> 基因上游约 20 kb 的 SNP，与屈光异常相关，p = 5 × 10⁻¹⁰。是位点关联，不等于 LACTBL1 本身的作用。</span></li>
-    <li><span class="cite">Wang et al. 2022, <i>World J Mens Health</i></span><a class="pm" href="https://pubmed.ncbi.nlm.nih.gov/35021295/" target="_blank" rel="noopener">PMID 35021295</a><span class="what"><span class="ev lit">文献</span> 486 名中国汉族男性的早泄 GWAS，3 个 LACTBL1 SNP 只到提示阈值（p &lt; 5 × 10⁻⁶），没有重复验证。</span></li>
+    <li><span class="cite">Wang et al. 2022, <i>World J Mens Health</i></span><a class="pm" href="https://pubmed.ncbi.nlm.nih.gov/35021295/" target="_blank" rel="noopener">PMID 35021295</a><span class="what"><span class="ev lit">文献</span> 486 名中国汉族男性的早泄 GWAS，3 个 LACTBL1 SNP 只到提示阈值（p &lt; 5 × 10⁻⁶），没有重复验证。三个 SNP 都在第 4 内含子、相距不到 1.2 kb，很可能是同一个信号。</span></li>
+    <li><span class="cite">Kitamura et al. 2023, <i>Sci Rep</i></span><a class="pm" href="https://doi.org/10.1038/s41598-023-40193-7" target="_blank" rel="noopener">DOI</a><span class="what"><span class="ev lit">文献</span> 热带爪蟾自发肿瘤里 lactbl1 偏高；TCGA 肾癌里高表达组生存较差。“显著”是按中位数分组、差 0.2 就算，没做统计检验，和 HPA 的 not prognostic 不一致。证据弱。</span></li>
     <li><span class="cite">Zhao et al. 2025, <i>Nat Commun</i></span><a class="pm" href="https://pubmed.ncbi.nlm.nih.gov/40121201/" target="_blank" rel="noopener">PMID 40121201</a><span class="what"><span class="ev bad">别算到它头上</span> 阿尔茨海默病的羟甲基化区域，实际落在 EPHB2 里面，LACTBL1 只是 50 kb 内的邻居。</span></li>
     <li><span class="cite">Liobikas et al. 2006, <i>Protein Expr Purif</i></span><a class="pm" href="https://pubmed.ncbi.nlm.nih.gov/16202624/" target="_blank" rel="noopener">PMID 16202624</a><span class="what">讲的是 LACTB，不是 LACTBL1。常被误引，放在这里备查。</span></li>
   </ol>
 </section>
 
 <section id="open" aria-labelledby="h-open">
-  <h2 id="h-open">还没查的<small>PS1 里要写到，或者后面几个 PS 会用到</small></h2>
+  <h2 id="h-open">还没查的<small>截至 10/5；PS1 那批已经查完或写进终稿</small></h2>
   <ul class="plain">
-    <li><span class="ev todo">待查</span> 无脊椎动物有没有直系同源物：BLASTp / DELTA-BLAST 限定 Drosophila、海胆、文昌鱼（Q3 的果蝇那一组）</li>
-    <li><span class="ev todo">待查</span> 鸡、斑马鱼、七鳃鳗的蛋白 accession，跑 Needle（Q3）</li>
-    <li><span class="ev todo">待查</span> USPTO 专利、Google Scholar、Google Books、GeneCards 别名复查（Q1 方法段要列“查了但没结果”）</li>
-    <li><span class="ev todo">待查</span> 3′ 端在哪：PolyASite、EST 证据；AATAAA 候选位点靠不靠谱</li>
-    <li><span class="ev todo">待查</span> 1p36 缺失 CNV 如果要写，查清缺了多少 DNA、带走几个基因</li>
+    <li><span class="ev todo">待查</span> NCBI Gene 关键词检索命中数：<code>LACTBL1</code> 和 <code>"lactamase beta like 1"</code>（PS2 1.1 剩下的唯一空）</li>
+    <li><span class="ev todo">待查</span> 海绵 LOC100637838 在 NCBI Gene 页面上有几条转录本（PS2 3.1；UniProt、KEGG 都只有 1 条）</li>
+    <li><span class="ev todo">待查</span> MSA、建树、m 的公式和拟合方式，按 10/7、10/12、10/14 的课件核对</li>
+    <li><span class="ev todo">待查</span> 表达题（如果今年 PS2 有）：10/19、10/21 课后做</li>
+    <li><span class="ev todo">待查</span> PS1 面谈（10/5–10/9）老师的意见，PS2 第 4 题要据此改概念翻译</li>
+    <li><span class="ev todo">待查</span> 3′ 端在哪：终止密码子下游 +322 nt 的 AATAAA 紧挨 Alu，没有转录本证据；要 PolyASite 或 3′ RACE</li>
+    <li><span class="ev todo">待查</span> 线虫、果蝇这一支是丢了 LACTBL1 还是变得认不出来</li>
     <li><span class="ev todo">待查</span> N 端疏水段是信号锚还是跨膜段：DeepTMHMM、SignalP（PS3 会讲）</li>
+    <li><span class="ev todo">待查</span> 1p36 缺失 CNV 如果要写，查清缺了多少 DNA、带走几个基因</li>
+    <li><span class="ev rec">查完</span> 无脊椎直系（10/2）· 鸡、斑马鱼、海鞘的 Needle（PS1 Q3）· Google Scholar 和 USPTO（10/5）· poly(A) 的回答写进 PS1 v7</li>
   </ul>
 </section>
+
 </main>
 </div>
 
 <footer>
-  <p>数据核对日期 2026-09-28：NCBI Gene、NM/NP 记录、ExPASy ProtParam、InterPro、UCSC 当天页面；表达、约束、文献条目来自 2026-09-13 至 09-15 的数据库查询。每条都附了原始链接，写作业时以原始页面为准。</p>
-  <p>课程表：日期和分值按 Canvas 作业页与课程日程表（Schedule GCD 3485 F26）核对，2026-09-30；课堂笔记依据课件，老师口头讲的没录。</p>
+  <p>进化部分：2026-10-02 至 10-04 的 PS2 分析（NCBI BLAST、NCBI Datasets、Ensembl Compara、UniProt、TimeTree 5，本地 pyhmmer / Biopython / FAMSA），数字和 PS2 草稿 v33 一致；文献 10-05 补查 Google Scholar 和 USPTO。</p>
+  <p>其余数据核对日期 2026-09-28：NCBI Gene、NM/NP 记录、ExPASy ProtParam、InterPro、UCSC 当天页面；表达、约束、文献条目来自 2026-09-13 至 09-15 的数据库查询。每条都附了原始链接，写作业时以原始页面为准。</p>
+  <p>课程表：日期和分值按 Canvas 作业页与课程日程表（Schedule GCD 3485 F26）核对，2026-09-30；作业进度更新到 2026-10-05；课堂笔记依据课件，老师口头讲的没录。</p>
   <p>GCD 3485 · Fall 2026 · Zhiyuan Guo 的学期基因。整理时用了 Claude 协助。</p>
 </footer>
 </div>
